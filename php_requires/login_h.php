@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // echo $username . '<br>';
     // echo $pwd . '<br>';
     if(empty($username) || empty($pwd)) {
-        header( "refresh:0; url=../registration.php" );
+        header( "refresh:0; url=../index.php" );
         echo '<script> alert("Something is missing");</script>';
         die("");
     }

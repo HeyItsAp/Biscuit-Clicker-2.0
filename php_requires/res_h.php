@@ -26,9 +26,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         require_once "dbh-inc.php"; 
 
         // For duplicate
-            $query = "SELECT * FROM user WHERE username = :username;";
+            $query = "SELECT * FROM user WHERE DisplayName = :DisplayName;";
             $stmt = $pdo -> prepare($query);
-            $stmt -> bindParam(':username', $username);
+            $stmt -> bindParam(':DisplayName', $display_name);
             $stmt -> execute();
             $result = $stmt ->fetch(PDO::FETCH_ASSOC);
             var_dump($result);
@@ -75,11 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         } catch (PDOException $e) {
             die("Failed " . $e->getMessage()); // die(); terminater scriptet og printer ut inni ()
         }
-    
         
-
-    
-
 } else {
     header("Location: ../index.php"); // Sender personen tilbake til index.php hvis det er ingen php
 }

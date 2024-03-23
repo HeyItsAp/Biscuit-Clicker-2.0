@@ -11,51 +11,6 @@ console.log("Site: " + page)
 
 // 
 
-    // Nav
-
-        //
-function SelectHamIcon(x) {
-  x.classList.toggle("change");
-}
-/* Set the width of the side navigation to 250px */
-function openNav() {
-  /* Sjekker width til viewport og justerer mysidenav width */
-  let sidebarwidth = "";
-  if (window.innerHeight <= 450) {
-    console.log(window.innerHeight);
-    sidebarwidth = "100%";
-  } else {
-    console.log(window.innerHeight);
-    sidebarwidth = "250px";
-  }
-
-
-  if (document.getElementById("mySidenav").style.width == sidebarwidth) {
-    console.log("already open, closing");
-    closeNav();
-  } else {
-    document.getElementById("mySidenav").style.width = sidebarwidth;
-    document.getElementById("Ham-icon-id").classList.add("change");
-  }
-}
-
-/* Set the width of the side navigation to 0 */
-function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
-  document.getElementById("Ham-icon-id").classList.remove("change");
-
-}
-window.addEventListener("click", (d) => {
-  if (!d.target.matches('.Ham-icon') && !d.target.matches('.Cookie-menu')) {
-    var nav_is_showing = document.getElementById("mySidenav");
-    if (nav_is_showing.style.width == "250px") {
-      closeNav();
-    }
-  }
-})
-
-// 
-
     // Main Game
 
         //
@@ -69,11 +24,58 @@ var incrementvalue = 1;
 var biscuitauto = 0;
 var prestige_req = 100000;
 
-function incrementcount() {
+function incrementcount(event) {
   biscuitCount += incrementvalue;
   UpdateBiscuitCount();
   UpdatePrestige();
+
+  let clicker_biscuit = document.getElementById('clicker-biscuit');
+
+  let clicker_offset = clicker_biscuit.getBoundingClientRect();
+  let position = {
+    x: event.pageX - clicker_offset.left + (50 - Math.random() * 100),
+    y: event.pageY - clicker_offset.top + (50 - Math.random() * 100)
+  }
+
+  let number = document.createElement('div');
+  number.className = "position-absolute z-3 text-black fs-3";
+  // Not clickable
+  number.style.pointerEvents = "none";
+  number.style.userSelect = "none";
+
+  number.innerHTML = incrementvalue;
+  number.style.left = position.x + "px";
+  number.style.top = position.y + "px";
+
+
+  // Debugging statements
+    // console.log("Parent size:", clicker_biscuit.offsetWidth, clicker_biscuit.offsetHeight);
+    // console.log("Child size:", number.offsetWidth, number.offsetHeight);
+
+  // Animation / movement
+
+    let speed_modifier = 1;    // More is faster, less is slower
+
+    let change_in_direction = 0.1;
+    setInterval(() =>{
+      change_in_direction = (change_in_direction + (3 * speed_modifier));
+      position.y = position.y - change_in_direction;
+      number.style.top = position.y + "px";
+    }, 10)
+
+    let opacity = 1;
+    setInterval(() =>{
+      opacity = (opacity - (0.1 * speed_modifier));
+      number.style.opacity = opacity;
+      if (opacity <= 0){
+         number.remove();
+      }
+    }, 10)
+
+  clicker_biscuit.appendChild(number);
 }
+
+
     if (page == "index.php" || page == "") {
       setInterval(() => {
         for (let element of Upgrades){
@@ -82,7 +84,7 @@ function incrementcount() {
         UpdateBiscuitCount();
         UpdatePrestige();
 
-        console.log(biscuitCount)
+        console.log("Biscuit count: " + biscuitCount)
       }, 1000)
       function UpdateBiscuitCount(){
         let biscuitCountElement = document.getElementById("biscuit-count");
@@ -339,7 +341,9 @@ var orignalupgrade = [
 
 
 function RefreshUpgradesElem(){
-  let upgradeelements = document.querySelectorAll("div.upgrade");
+  let upgradeparent = document.getElementById("The-upgrades-menu");
+  let upgradeelements = upgradeparent.querySelectorAll("div");
+  console.log("Refreshing Upgrades");
   for (let index = 0; index < upgradeelements.length; index++){
     upgradeelements[index].remove();
   } 
@@ -358,60 +362,69 @@ if (page == "index.php" || page == ""){
 function CreateUpgrade(element) {
   let Upgrade_div = document.createElement("div")
     Upgrade_div.setAttribute("id", "Upgrade-" + element.navn)
-    Upgrade_div.setAttribute("class", "upgrade")
+    Upgrade_div.setAttribute("class", "list-group-item p-3 my-1 d-flex flex-row justify-content-between w-100 btn border-0")
+    Upgrade_div.style.backgroundColor = "#FFD700"
     document.getElementById("The-upgrades-menu").appendChild(Upgrade_div)
     
     let upgradeheadline = document.createElement("div")
-      upgradeheadline.setAttribute("class", "upgradeheadline")
+      upgradeheadline.setAttribute("class", "p-1")
       upgradeheadline.setAttribute("id", "upgradeheadline-" + element.navn)
       document.getElementById("Upgrade-" + element.navn).appendChild(upgradeheadline)
       
       let Upgrade_h2 = document.createElement("h2")
         Upgrade_h2.innerHTML = element.navn
+        upgradeheadline.setAttribute("class", "")
         document.getElementById("upgradeheadline-" + element.navn).appendChild(Upgrade_h2)
-      let Upgrade_des = document.createElement("p")
-        Upgrade_des.innerHTML = element.des
-        Upgrade_des.setAttribute("id", "iteminfo")
-        document.getElementById("upgradeheadline-" + element.navn).appendChild(Upgrade_des)
-    let Upgrade_buy_button = document.createElement("button")
-      Upgrade_buy_button.innerHTML = element.headline + "<br>Pris: <span id='price-"+ element.navn + "'>" + element.cost + "</span><br>Antal: <span id='antal-" + element.navn + "'>" + element.antal + "</span>";
-      document.getElementById("Upgrade-" + element.navn).appendChild(Upgrade_buy_button)
-      Upgrade_buy_button.addEventListener("click", () => {
-        console.log("Click")
-        if (biscuitCount >= element.cost){
-          // Neste upgrade unlocked
-          let currentUpgrade = Upgrades.indexOf(element);
-          if (Upgrades[currentUpgrade+1] != undefined){
-            Upgrades[currentUpgrade+1]["unlocked"] = true;
-          }
-          console.log("Nothing 2")
-
-          RefreshUpgradesElem();
-          // Oppdater text og data
-          biscuitCount = biscuitCount - element.cost
-          element.antal++;
-          element.cost = Math.round(element.cost *1.15);
-          UpdateBiscuitCount();
-          UpdateBiscuitAuto();
-          document.getElementById("price-" + element.navn).innerHTML = element.cost
-          document.getElementById("antal-" + element.navn).innerHTML = element.antal
+      let Upgrade_headline = document.createElement("p")
+        Upgrade_headline.innerHTML = element.headline
+        Upgrade_headline.setAttribute("class", "text-start mb-1")
+        document.getElementById("upgradeheadline-" + element.navn).appendChild(Upgrade_headline)
+      let Upgrade_price = document.createElement("p")
+        Upgrade_price.setAttribute("id", "price-"+ element.navn)
+        Upgrade_price.innerHTML = element.cost 
+        Upgrade_price.setAttribute("class", "text-start mb-1 text-decoration-underline fs-3")
+        Upgrade_price.style.color = "#8B4513"
+        document.getElementById("upgradeheadline-" + element.navn).appendChild(Upgrade_price)
 
 
-          
-   
-          return 
+  
 
-          
+    let upgrade_info_div = document.createElement("div")
+      upgrade_info_div.setAttribute("class", "d-flex flex-column justify-content-center align-items-center")
+      upgrade_info_div.setAttribute("id", "upgrade-info-" + element.navn)
+      document.getElementById("Upgrade-" + element.navn).appendChild(upgrade_info_div)
 
-        } else {
-          console.log(biscuitCount, element.cost, element.antal);
-          // return document.getElementById("upgrade-info").innerHTML = "You dont have enough money";
-          alert("You dont have enough Biscuit");
-          return
+      let Upgrade_amount = document.createElement("h3")
+        Upgrade_amount.setAttribute("id", "antal-" + element.navn)
+        Upgrade_amount.innerHTML = element.antal;
+        document.getElementById("upgrade-info-" + element.navn).appendChild(Upgrade_amount)
+
+
+    Upgrade_div.addEventListener("click", () => {
+      console.log("Click")
+      if (biscuitCount >= element.cost){
+        // Neste upgrade unlocked
+        let currentUpgrade = Upgrades.indexOf(element);
+        if (Upgrades[currentUpgrade+1] != undefined){
+          Upgrades[currentUpgrade+1]["unlocked"] = true;
         }
+        console.log("Nothing 2")
 
+        RefreshUpgradesElem();
+        // Oppdater text og data
+        biscuitCount = biscuitCount - element.cost
+        element.antal++;
+        element.cost = Math.round(element.cost * 1.5);
+        UpdateBiscuitCount();
+        UpdateBiscuitAuto();
+        document.getElementById("price-" + element.navn).innerHTML = element.cost
+        document.getElementById("antal-" + element.navn).innerHTML = element.antal
+        
 
-
+      } else {
+        console.log(biscuitCount, element.cost, element.antal);
+        return triggermodal("You have enough biscuits to get this update");
+      }
     })
       // Example:
       // <div class="upgrade">
@@ -443,22 +456,22 @@ var items = [
     navn: "Disabled Kid",
     Rarity: "Trash",
     increment_increase: 0,
-    beskrivelse: "Poor guy <br><span class='bold-text'> Already Disabled. Nothing. </span>", // Span for bold text
-    Obtained: false,
+    beskrivelse: "Poor guy", // Span for bold text
+    Obtained: true,
   },
   {
     navn: "Sakura (Fra Naurto)",
     increment_increase: 0,
     Rarity: "Trash",
-    beskrivelse: "Annoying Customer <br><span class='bold-text'> 0 Biscuit pr Click </span>", // Span for bold text
-    Obtained: false,
+    beskrivelse: "Annoying Customer", // Span for bold text
+    Obtained: true,
   },
   {
     navn: "Santa Claus",
     increment_increase: 0,
     Rarity: "Trash",
-    beskrivelse: "Sadly, did not come to give gifts. <br> <span class='bold-text'> 0 Biscuit pr Click </span>", // Span for bold text
-    Obtained: false,
+    beskrivelse: "Sadly, did not come to give gifts.", // Span for bold text
+    Obtained: true,
   },
   
   // Rare items
@@ -466,43 +479,43 @@ var items = [
     navn: "Black hole",
     Rarity: "Rare",
     increment_increase: 25,
-    beskrivelse: "You learned how to refine energy and able to extract the energy of a black hole. <br><span class='bold-text'> + 25 biscuit pr Click.</span>", // Span for bold text
-    Obtained: false,
+    beskrivelse: "You learned how to refine energy and able to extract the energy of a black hole.", // Span for bold text
+    Obtained: true,
   },
 
   {
     navn: "Skibidi Toilet",
     Rarity: "Rare",
     increment_increase: 25,
-    beskrivelse: "Premium Toilet <br><span class='bold-text'> + 25 biscuit pr Click </span>", // Span for bold text
-    Obtained: false,
+    beskrivelse: "Premium Toilet.", // Span for bold text
+    Obtained: true,
   }, 
   {
     navn: "Whip from the good old times.",
     Rarity: "Rare",
     increment_increase: 50,
-    beskrivelse: "The best motivator for any type of workplace. <br><span class='bold-text'> + 25 biscuit pr Click </span>", // Span for bold text
-    Obtained: false,
+    beskrivelse: "The best motivator for any type of workplace.", // Span for bold text
+    Obtained: true,
   }, 
   {
     navn: "Chainsaw man",
     Rarity: "Rare",
     increment_increase: 25,
-    beskrivelse: "Honest worker, but dumb. <br><span class='bold-text'> + 25 biscuit pr Click </span>", // Span for bold text
-    Obtained: false,
+    beskrivelse: "Honest worker, but dumb.", // Span for bold text
+    Obtained: true,
   }, 
   {
     navn: "W Rizz.",
     Rarity: "Rare",
     increment_increase: 25,
-    beskrivelse: "W Rizz. <br><span class='bold-text'> + 25 biscuit pr Click</span>", // Span for bold text
-    Obtained: false,
+    beskrivelse: "W Rizz.", // Span for bold text
+    Obtained: true,
   }, 
   {
     navn: "Creator's Mother",
     increment_increase: 25,
     Rarity: "Rare",
-    beskrivelse: "How the hell is my mom in the game? <br><span class='bold-text'> + 25 biscuit pr Click </span>", // Span for bold text
+    beskrivelse: "How the hell is my mom in the game?", // Span for bold text
     Obtained: false,
   },
 
@@ -511,21 +524,21 @@ var items = [
     navn: "H Magnus H",
     increment_increase: 250,
     Rarity: "Epic",
-    beskrivelse: "Add him on Epic Games. <br><span class='bold-text'> + 200 biscuit pr Click </span>", // Span for bold text
+    beskrivelse: "Add him on Epic Games.", // Span for bold text
     Obtained: false,
   },
   {
     navn: "Dad's Milk",
     increment_increase: 100,
     Rarity: "Epic",
-    beskrivelse: "Your dad came home with premium milk. <br><span class='bold-text'> + 100 biscuit pr Click. </span>", // Span for bold text
+    beskrivelse: "Your dad came home with premium milk.", // Span for bold text
     Obtained: false,
   },
   {
     navn: "Water bending",
     increment_increase: 100,
     Rarity: "Epic",
-    beskrivelse: "Avatar reference. <br><span class='bold-text'> + 100 biscuit pr Click </span>", // Span for bold text
+    beskrivelse: "Avatar reference.", // Span for bold text
     Obtained: false,
   },
   // Legendary 
@@ -533,14 +546,14 @@ var items = [
     navn: "Ni-ho-di",
     increment_increase: 5000,
     Rarity: "Legendary",
-    beskrivelse: "Good job. You won. <br><span class='bold-text'> + 5000 biscuit pr Click </span>", // Span for bold text
+    beskrivelse: "Good job. You won.", // Span for bold text
     Obtained: false,
   },
   {
     navn: "Life",
     increment_increase: 2000,
     Rarity: "Legendary",
-    beskrivelse: "You finally go outside <br><span class='bold-text'> + 2000 biscuit pr Click </span>", // Span for bold text
+    beskrivelse: "You finally go outside.", // Span for bold text
     Obtained: false,
   }
 ]
@@ -548,53 +561,55 @@ if (page == "items.php") {
   function CreateItem(element) {
     let Item_div= document.createElement("div")
     Item_div.setAttribute("id", "Item-" + element.navn)
-    Item_div.setAttribute("class", "item-container")
+    Item_div.setAttribute("class", "col-8 col-lg-4 col-xl-3")
     document.getElementById("items").appendChild(Item_div)
 
-      let Item_h2 = document.createElement("h2")
-      Item_h2.innerHTML = element.navn
-      document.getElementById("Item-" + element.navn).appendChild(Item_h2)
+      let Item_card = document.createElement("div")
+      Item_card.setAttribute("id", "Item-card-" + element.navn)
+      Item_card.setAttribute("class", "card border-1")
+      document.getElementById("Item-" + element.navn).appendChild(Item_card)
 
-      let Item_des = document.createElement("p")
-      Item_des.innerHTML = element.beskrivelse
-      Item_des.setAttribute("id", "iteminfo")
-      document.getElementById("Item-" + element.navn).appendChild(Item_des)
-      let Item_rarity = document.createElement("p")
-      Item_rarity.innerHTML = "Rarity: " + element.Rarity
-      Item_rarity.setAttribute("id", "iteminfo")
-      document.getElementById("Item-" + element.navn).appendChild(Item_rarity)
-      // Checkbox
-        // let Item_checkbox_div = document.createElement("div")
-        // Item_checkbox_div.setAttribute("id", "Item-" + element.navn + "2")
-        // Item_checkbox_div.setAttribute("class", "form-check form-switch d-flex align-items-center p-0 ms-5 ms-5 justify-content-center")
-        // document.getElementById("Item-" + element.navn).appendChild(Item_checkbox_div)
+        let card_body = document.createElement("div")
+        card_body.setAttribute("id", "card-body-" + element.navn)
+        card_body.setAttribute("class", "card-body text-center p-0 ")
 
-        //   let Item_checkbox= document.createElement("input")
-        //   Item_checkbox.setAttribute("class", "form-check-input text-success")
-        //   Item_checkbox.setAttribute("type", "checkbox")
-        //   Item_checkbox.setAttribute("name", "x1") // Do be determined later
-        //   Item_checkbox.setAttribute("checked", "") // Do be determined later
-        //   document.getElementById("Item-" + element.navn + "2").appendChild(Item_checkbox)
 
-        //   let Item_label= document.createElement("label")
-        //   Item_label.setAttribute("class", "form-check-label fs-5 text-black ms-2")
-        //   Item_label.setAttribute("for", "x1") // Do be determined later
-        //   Item_label.innerHTML = "Disable or Enable"
-        //   document.getElementById("Item-" + element.navn + "2").appendChild(Item_label)
+        document.getElementById("Item-card-" + element.navn).appendChild(card_body)
+
+          let card_header = document.createElement("div");
+          card_header.setAttribute("class", "card-header text-center text-primary");
+          card_header.innerHTML = element.Rarity;
+          document.getElementById("card-body-" + element.navn).appendChild(card_header);
+
+          let Item_h2 = document.createElement("h2")
+          Item_h2.innerHTML = element.navn
+          Item_h2.setAttribute("class", "card-title py-3 fs-3 px-2")
+          document.getElementById("card-body-" + element.navn).appendChild(Item_h2)
+
+          let Item_des = document.createElement("p")
+          Item_des.innerHTML = element.beskrivelse
+          Item_des.setAttribute("class", "card-text mx-5 text-muted")
+          document.getElementById("card-body-" + element.navn).appendChild(Item_des)
+
+          let card_footer = document.createElement("div");
+          card_footer.innerHTML = "+ " + element.increment_increase + " Biscuit on Click";
+          card_footer.setAttribute("class", "card-footer");
+          document.getElementById("card-body-" + element.navn).appendChild(card_footer)
+          
 
       // Eksempel: 
-      // <div class="item-container" id="daidwidwa">
-      //   <h2> Your MOm </h2>
-      //   <img src="#" alt="YourMom">
-      //   <p> Rarity </p>
-
-      //   <p id="iteminfo"> Your mom is helpful. <span class="bold-text"> Gain 1 cookie per second </span></p>
-      //     <div class="form-check form-switch d-flex align-items-center p-0 ms-5 ms-5 justify-content-center" >
-      //       <input class="form-check-input text-success" type="checkbox" name="x1" checked>
-      //       <label class="form-check-label fs-5 text-black ms-2" for="x1"> Disable or Enable </label>
-      //     </div>
+      // <div class="col-8 col-lg-4 col-xl-3">
+      //   <div class="card border-0"><!-- No card border-->
+      //       <div class="card-body text-center py-4"><!-- The content-->
+      //           <h4 class="card-title">Example lel</h4>
+      //           <p class="lead card-subtitle">Subtitle</p>
+      //           <p class="display-5 my-4 text-primary fw-bold"> Lorem.</p>
+      //           <p class="card-text mx-5 text-muted d-none d-lg-block">Lorem ipsum dolor sit amet.</p>
+      //           <a href="#" class="btn btn-outline-primary btn-lg mt-3">Buy reithg noew</a>
+      //       </div>
+      //    </div>
       // </div>
-  }
+    }
     function CreateItems(items_array) {
       let you_have_an_item = false;
       for (let element of items_array) {
@@ -747,13 +762,13 @@ function pullItem(){
 // Logging in
 let isloggedinn = document.querySelector("meta[name='Login']").content;
 
-console.log(isloggedinn);
+console.log("Is logged inn:" + isloggedinn);
 if (isloggedinn == 1) {
   if (page == "index.php" || page == ""){
     document.getElementById("biscuit-count").innerHTML = "Loading ... ";
   }
 
-  console.log("log in true");
+  console.log("Logged in: True");
   // if logged in
   $.ajax({
     url: 'php_requires/dataretrive_ajax.php',
@@ -825,7 +840,15 @@ if (isloggedinn == 1) {
   });
 
 } else if (isloggedinn == 0) {
-  console.log("Logged inn false");
+  console.log("Logged inn: False");
+
+  //
+  // TEMPORARY CODE: USED FOR BOOTSTAP CONFIGURATION ONLY 
+  // WHEN LOGGED IN
+  //
+  if (page == "items.php"){
+    CreateItems(items); 
+  }
 }
 
 // Saving progress
@@ -887,3 +910,14 @@ if (isloggedinn == 1) {
     document.body.appendChild(save_form);
     save_form.submit();
   }
+
+// 
+
+    // Modal
+
+        //
+function triggermodal (text){
+  let vital_text = document.getElementById("vital-text");
+  vital_text.innerHTML = text;
+  $('#vital_modal').modal('show');
+}

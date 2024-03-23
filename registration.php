@@ -5,55 +5,110 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Regisration </title>
-    <link rel="stylesheet" href="./style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="icon" type="image/x-icon" href="Medium/Bilder/Mainicon.ico">
+    <link rel="stylesheet" href="https://use.typekit.net/ecv0hnp.css"><!-- Font -->
+    <?php
+    if (isset($_SESSION["login"]) && $_SESSION["login"] == true){?>
+        <meta name="Login" content="<?php echo htmlspecialchars($_SESSION['login']); ?>">
+    <?php } else { ?>
+        <meta name="Login" content="0">
+    <?php } ?>
+    <style>
+        body {
+            background-color:#D2B48C;
+            
+            font-family: mr-eaves-xl-modern, sans-serif;
+            font-style: normal;
+            font-weight: 400;   
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+        }
+        .animation-1 {
+            animation: FadeSlideIn 2s ease-in-out;
+            opacity: 1;
+
+        }
+        .animation-2 {
+            animation: FadeSlideIn 2s ease-in-out;
+            animation-delay: 2s;
+        }
+        @keyframes FadeSlideIn {
+            from {
+                opacity: 0;
+                transform: translate(0px, -45px);
+            }
+            to {
+                opacity: 1;
+                transform: translate(0px, 0px);
+            }
+        }
+
+        #mjaau{
+            background-color: #D2B48C;
+            width: 249px;
+            height: 250px;
+            position: absolute;
+            right: 0px;
+            top: 380px;
+        } 
+    </style>
 </head>
 
 <body>
-        <!-- <nav>
-        <div id="mySidenav" class="sidenav">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="./settings.html"> Settings </a>
-            <a href="./items.html"> Items </a>
-            <a href="./summons.html"> Summons</a>
-            <a href="./login.html"> Login / Logout</a>
-        </div>
-        <a href="./index.html" class="Maingamelink"> &lt; Main Game</a>
-        <img src="./Medium/Bilder/Mainlogo.png" class="Cookie-menu" onclick="openNav()">
-        <div class="Ham-icon" id="Ham-icon-id" onclick="SelectHamIcon(this), openNav()">
-            <div class="Ham-icon-1"></div>
-            <div class="Ham-icon-2"></div>
-            <div class="Ham-icon-3"></div>
-        </div>
-    </nav> -->
     <?php 
-        require_once "php_requires/nav_noindex.php";
+        require_once "php_requires/nav.php";
     ?>
-    <div class="login-dark">
+    <div class="container-lg">
+        <div class="text-center my-2 animation-1">
+            <h2 style="letter-spacing: 12px;"> Welcome to </h2>
+        </div>
+    </div>
+    
+
+    <div class="m-5 animation-2">
+        <!-- Stationary cooikie --><!-- <iframe src='https://my.spline.design/untitled-3678d236cbeaee7036a9de60a321974c/' frameborder='0' width='100%' height='450px'></iframe> -->
+        <!-- Rotating cookie --><iframe src='https://my.spline.design/untitled-3678d236cbeaee7036a9de60a321974c/' frameborder='0' width='100%' height='450px%'></iframe>
+
+        
+    </div>
+
+<div id="mjaau">
+
+</div>
+
+    <div class="container-lg mt-2 p-3 rounded-3" style="background-color:#FFFFFF;">
         <form method="post" action="php_requires/res_h.php">
-            <h2 class="sr-only">Sign up Form</h2>
-            <div class="form-group"><input class="form-control" type="text" name="display_name" placeholder="Display Name"></div>
-            <div class="form-group"><input class="form-control" type="text" name="username" placeholder="Username"></div>
-            <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password"></div>
-            <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Sign up</button></div>
+            <h2>Create your user</h2>
+            <div class="mb-3">
+                <label for="display_name" class="form-label"> Display name </label>
+                <input class="form-control" type="text" name="display_name" placeholder='"BiscuitMaster123"'>
+                <p class="form-text">Display name is used to represent you in events and leaderboard</p>
+                <p class="form-text">No duplicate display names can be created </p>
+
+            </div>
+            <div class="mb-3">
+                <label for="display_name" class="form-label"> Username </label>
+                <input class="form-control" type="text" name="username" placeholder='"cookiehater"'>
+                <p class="form-text">No duplicate username can be created </p>
+
+            </div>
+            <div class="mb-3">
+                <label for="display_name" class="form-label"> Password </label>
+                <input class="form-control" type="text" name="username" placeholder='"ihatecookies"'>
+            </div>
+            <div>
+                <input class="btn btn-primary btn-block" type="submit" name="submitSignUp" value="Create user">
+            </div>
         </form> 
     </div>
-    <footer>
-        <div class="footer-wrapping">
-            <h2 class="footer-title"> Kontakt</h2>
-            <a href="mailto:adrian@gmail.com" class="footer-link">Adrian@gmail.com </a>
-            <a href="telto:9696969" class="footer-link">&nbsp; +47 96969699</a>
-            <!-- <a href="" class="footer-link"></a> -->
 
-        </div>
-    </footer>
     <script src="./script.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap 5.3 komponent:-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <!-- Used for Popper effect: If you don’t plan to use dropdowns, popovers, or tooltips, save some kilobytes by not including Popper. -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 </body>
 
 </html>
