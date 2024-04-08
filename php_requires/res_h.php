@@ -26,15 +26,36 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         require_once "dbh-inc.php"; 
 
         // For duplicate
-            $query = "SELECT * FROM user WHERE DisplayName = :DisplayName;";
-            $stmt = $pdo -> prepare($query);
-            $stmt -> bindParam(':DisplayName', $display_name);
-            $stmt -> execute();
-            $result = $stmt ->fetch(PDO::FETCH_ASSOC);
-            var_dump($result);
-            print $result;
-            print_r($result);
-            if ($result == false){
+            try {
+                $query = "SELECT * FROM user WHERE DisplayName = :DisplayName;";
+                $stmt = $pdo -> prepare($query);
+                $stmt -> bindParam(':DisplayName', $display_name);
+                $stmt -> execute();
+                $Duplicate_display = $stmt ->fetch(PDO::FETCH_ASSOC);
+                var_dump($Duplicate_display);
+                print $Duplicate_display;
+                print_r($Duplicate_display);
+    
+                $query = "SELECT * FROM user WHERE username = :username;";
+                $stmt = $pdo -> prepare($query);
+                $stmt -> bindParam(':username', $username);
+                $stmt -> execute();
+                $Duplicate_username = $stmt ->fetch(PDO::FETCH_ASSOC);
+                var_dump($Duplicate_username);
+                print $Duplicate_username;
+                print_r($Duplicate_username);
+            } catch (PDOException $e) {
+                echo "Connection Error: " . $e->getMessage(); 
+            }
+
+            if ($Duplicate_display && $Duplicate_username){
+                $pdo = null;
+                $stmt = null;  
+                header( "refresh:0; url=../registration.php" );
+                echo '<script> alert("Something is missing");</script>';
+                die("");
+            } else {
+
                 $query = "INSERT INTO user (DisplayName, username, pwd) values (:DisplayName, :username, :pwd);";
                 $stmt = $pdo -> prepare($query);
                 $stmt -> bindParam(':DisplayName', $display_name);
@@ -57,13 +78,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $stmt = $pdo -> prepare($query);
                 $stmt -> bindParam(':user_id', $user_id);
                 $stmt -> execute();
-
-            } else {
-                $pdo = null;
-                $stmt = null;  
-                header( "refresh:0; url=../registration.php" );
-                echo '<script> alert("Something is missing");</script>';
-                die("");
             } 
                 // Closing the connection
                 $pdo = null;

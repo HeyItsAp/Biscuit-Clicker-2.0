@@ -88,8 +88,7 @@
                 <div class="mb-3">
                     <label for="display_name" class="form-label"> Username </label>
                     <input class="form-control" type="text" name="username" placeholder='"cookiehater"'>
-                    <p class="form-text">No duplicate username can be created </p>
-
+                    <p class="form-text">No duplicate display names can be created </p>
                 </div>
                 <div class="mb-3">
                     <label for="display_name" class="form-label"> Password </label>
