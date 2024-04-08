@@ -59,49 +59,48 @@
     <?php 
         require_once "php_requires/nav.php";
     ?>
-    <div class="container-lg">
-        <div class="text-center my-2 animation-1">
-            <h2 style="letter-spacing: 12px;"> Welcome to </h2>
-        </div>
-    </div>
-    
+    <section>
+        <header>
+            <div class="container-lg">
+                <div class="text-center my-2 animation-1">
+                    <h2 style="letter-spacing: 12px;"> Welcome to </h2>
+                </div>
+            </div>
+            <div class="m-5 animation-2">
+                <!-- Stationary cooikie --><!-- <iframe src='https://my.spline.design/untitled-3678d236cbeaee7036a9de60a321974c/' frameborder='0' width='100%' height='450px'></iframe> -->
+                <!-- Rotating cookie --><iframe src='https://my.spline.design/untitled-3678d236cbeaee7036a9de60a321974c/' frameborder='0' width='100%' height='450px%'></iframe>
+            </div>
 
-    <div class="m-5 animation-2">
-        <!-- Stationary cooikie --><!-- <iframe src='https://my.spline.design/untitled-3678d236cbeaee7036a9de60a321974c/' frameborder='0' width='100%' height='450px'></iframe> -->
-        <!-- Rotating cookie --><iframe src='https://my.spline.design/untitled-3678d236cbeaee7036a9de60a321974c/' frameborder='0' width='100%' height='450px%'></iframe>
-
-        
-    </div>
-
-<div id="mjaau">
-
-</div>
-
-    <div class="container-lg mt-2 p-3 rounded-3" style="background-color:#FFFFFF;">
-        <form method="post" action="php_requires/res_h.php">
-            <h2>Create your user</h2>
-            <div class="mb-3">
-                <label for="display_name" class="form-label"> Display name </label>
-                <input class="form-control" type="text" name="display_name" placeholder='"BiscuitMaster123"'>
-                <p class="form-text">Display name is used to represent you in events and leaderboard</p>
-                <p class="form-text">No duplicate display names can be created </p>
+            <div id="mjaau">
 
             </div>
-            <div class="mb-3">
-                <label for="display_name" class="form-label"> Username </label>
-                <input class="form-control" type="text" name="username" placeholder='"cookiehater"'>
-                <p class="form-text">No duplicate username can be created </p>
+        </header>
+        <section class="container-lg mt-2 p-3 rounded-3" style="background-color:#FFFFFF;">
+            <form method="post" action="php_requires/res_h.php">
+                <h2>Create your user</h2>
+                <div class="mb-3">
+                    <label for="display_name" class="form-label"> Display name </label>
+                    <input class="form-control" type="text" name="display_name" placeholder='"BiscuitMaster123"'>
+                    <p class="form-text">Display name is used to represent you in events and leaderboard</p>
+                    <p class="form-text">No duplicate display names can be created </p>
 
-            </div>
-            <div class="mb-3">
-                <label for="display_name" class="form-label"> Password </label>
-                <input class="form-control" type="text" name="username" placeholder='"ihatecookies"'>
-            </div>
-            <div>
-                <input class="btn btn-primary btn-block" type="submit" name="submitSignUp" value="Create user">
-            </div>
-        </form> 
-    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="display_name" class="form-label"> Username </label>
+                    <input class="form-control" type="text" name="username" placeholder='"cookiehater"'>
+                    <p class="form-text">No duplicate username can be created </p>
+
+                </div>
+                <div class="mb-3">
+                    <label for="display_name" class="form-label"> Password </label>
+                    <input class="form-control" type="text" name="username" placeholder='"ihatecookies"'>
+                </div>
+                <div>
+                    <input class="btn btn-primary btn-block" type="submit" name="submitSignUp" value="Create user">
+                </div>
+            </form> 
+        </section>
+    </section>
 
     <script src="./script.js"></script>
     <!-- Bootstrap 5.3 komponent:-->

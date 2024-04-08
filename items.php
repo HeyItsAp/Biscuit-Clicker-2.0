@@ -29,16 +29,20 @@ if (!isset($_SESSION["login"]) && $_SESSION["login"] != true){
     <?php 
         require_once "php_requires/nav.php";
     ?>
-    <div class="container-lg">
-        <h1> Your items </h1>
-        <p> Your items are permanent upgrades and increase you biscuit count per click. Get items by "summoning" them </p>
-        <p id="increment_value"></p>
-        <div class="container">
-            <div id="items" class="row my-5 align-items-center justify-content-center g-3">
-                <!-- items printing by javascript -->
+    <section class="container-lg mt-5">
+        <div class="text-center">
+            <h1> Your items </h1>
+            <p> Your items are permanent upgrades and increase you biscuit count per click. Get items by "summoning" them </p>
+            <p id="increment_value"></p>
+            <div class="container">
+                <div id="items" class="row my-5 align-items-center justify-content-center g-3">
+                    <!-- items printing by javascript -->
+                </div>
             </div>
         </div>
-    </div>
+    </section>
+
+
     <!-- Bootstrap 5.3 komponent:-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <!-- Used for Popper effect: If you don’t plan to use dropdowns, popovers, or tooltips, save some kilobytes by not including Popper. -->

@@ -43,7 +43,7 @@ function incrementcount(event) {
   number.style.pointerEvents = "none";
   number.style.userSelect = "none";
 
-  number.innerHTML = incrementvalue;
+  number.innerHTML = "+" + incrementvalue;
   number.style.left = position.x + "px";
   number.style.top = position.y + "px";
 
@@ -382,7 +382,7 @@ function CreateUpgrade(element) {
       let Upgrade_price = document.createElement("p")
         Upgrade_price.setAttribute("id", "price-"+ element.navn)
         Upgrade_price.innerHTML = element.cost 
-        Upgrade_price.setAttribute("class", "text-start mb-1 text-decoration-underline fs-3")
+        Upgrade_price.setAttribute("class", "text-start mb-1 fs-3")
         Upgrade_price.style.color = "#8B4513"
         document.getElementById("upgradeheadline-" + element.navn).appendChild(Upgrade_price)
 
@@ -750,7 +750,7 @@ function pullItem(){
     });
 
   } else { 
-    document.getElementById("Error-msg").innerHTML = 'Not enough';
+      triggermodal("Not enough. To summon you need " + Summonreq + ". You have " + biscuitprestige + ".")
   }
 }
 // 

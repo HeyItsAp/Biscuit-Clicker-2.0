@@ -9,14 +9,13 @@
                 <a href="mailto:adrian@gmail.com" class="navbar-brand">
                     <i class="bi bi-envelope text-white h4"></i>
                 </a>
-                <a href="userSettings.php" class="navbar-brand"><i class="bi bi-person-circle text-white h2"></i></a>
                 <?php 
-                    if (isset($_SESSION["login"]) && $_SESSION["login"] == true){
-                        print '<a href="userSettings.php" class="navbar-brand">';
-                        print '<i class="bi bi-person-circle"></i>';
-                        echo $_SESSION["Display_Name"];
-                        print'</a>';
-                    }
+                    // if (isset($_SESSION["login"]) && $_SESSION["login"] == true){
+                    //     print '<a href="userSettings.php" class="navbar-brand">';
+                    //     print '<i class="bi bi-person-circle"></i>';
+                    //     echo $_SESSION["Display_Name"];
+                    //     print'</a>';
+                    // }
                 ?>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav"

@@ -54,7 +54,7 @@ if (!isset($_SESSION["login"]) && $_SESSION["login"] != true){
     <?php 
         require_once "php_requires/nav.php";
     ?>
-    <div class="container-lg m-1 p-3 rounded-3" style="background-color:#FFFFFF;">
+    <section class="container-lg mt-5 p-3 rounded-3" style="background-color: #FFFFFF;">
         <form method="post" action="php_requires/settings_h.php">
             <h2> Update your account</h2>
             <div class="mb-2">
@@ -86,7 +86,8 @@ if (!isset($_SESSION["login"]) && $_SESSION["login"] != true){
             <h2> Others </h2>
             <a href="logout.php" type="button" style="btn btn-outline-primary"> Logg ut her </a>
         </div>
-    </div>
+
+    </section>
 
 
     <script src="./script.js"></script>

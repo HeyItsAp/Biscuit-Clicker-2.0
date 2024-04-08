@@ -44,113 +44,58 @@ session_start();
     </style>
 </head>
 <body>
-        <!-- <nav>
-            <div id="mySidenav" class="sidenav">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                <a href="./login.php"> Login </a>
-                <a href="./settings.php"> Settings </a>
-                <a href="./items.php"> Items </a>
-                <a href="./summons.php"> Summons</a>
-            </div>
-            <?php 
-                if (isset($_SESSION["login"]) && $_SESSION["login"] == true){
-                    echo '<h2 id="login" style="margin: 10px;"> Hello, ' . $_SESSION["Display_Name"] . '</h2>';
-                }
-            ?>
-            <img src="./Medium/Bilder/Mainlogo.png" class="Cookie-menu" onclick="openNav()">
-            <div class="Ham-icon" id="Ham-icon-id" onclick="SelectHamIcon(this), openNav()">
-                <div class="Ham-icon-1"></div>
-                <div class="Ham-icon-2"></div>
-                <div class="Ham-icon-3"></div>
-            </div>
-        </nav> -->
         <?php
+            // DELETE?
+            // if (isset($_SESSION["login"]) && $_SESSION["login"] == true){
+            //     echo '<h2 id="login" style="margin: 10px;"> Hello, ' . $_SESSION["Display_Name"] . '</h2>';
+            // }
             require_once "php_requires/nav.php";
             require_once "php_requires/vital_info.php";
         ?>
 
         <!-- Main game -->
-        <section style="">
-            <div class="container-lg">
-                <div class="container-fluid">
-                    <div class="text-center d-flex flex-column">
-                        <h5 class="pt-2"> Biscuits: </h5>
-                        <h4 id="biscuit-count"></h4>
-                    </div>
-                    <div class="text-center">
-                        <p id="non-vital-information"></p>
-                    </div>
+        <section class="container-lg mt-5">
+            <div class="container-fluid">
+                <div class="text-center d-flex flex-column">
+                    <h5 class="pt-2"> Biscuits: </h5>
+                    <h4 id="biscuit-count"></h4>
                 </div>
-                <div class="row">
-                    <!-- Cookie -->
-                    <div class="col-12 col-md-6 d-flex align-items-center flex-column p-2">
-                        <!-- Stats -->
-                        <div class="container-fluid text-center">
-                            <h3> Stats</h3>
-                            <div class="">
-                                <p id="biscuit-auto-h2"> <!-- Biscuits per second: <span id="biscuit-auto">0</span> --></p>
-                            </div>
-                        </div>
-                        <div onclick="incrementcount(event)" id="clicker-biscuit"></div>
-                    </div>
-                    <!-- Store -->
-                    <div class="col-12 col-md-6 p-3 rounded-3" style="background-color:#FFFFFF;">
-                        <div class="text-start container-fluid">
-                            <h2> Biscuit Store</h2>
-                        </div>
-                        <div class="align-items-center justify-content-center list-group" id="The-upgrades-menu">
-                            <?php
-                                if (isset($_SESSION["login"]) && $_SESSION["login"] == true){
-                                    echo '<button id="save" style="" onclick="save_progress()"> Save Progress</button>';
-                                }
-                            ?>
-                        </div>
-                        <div class="container-fluid">
-                            <h2> Events??!??!?! </h2>
+                <div class="text-center">
+                    <p id="non-vital-information"></p>
+                </div>
+            </div>
+            <div class="row">
+                <!-- Cookie -->
+                <div class="col-12 col-md-8 d-flex align-items-center flex-column p-2">
+                    <!-- Stats -->
+                    <div class="container-fluid text-center">
+                        <h3> Stats</h3>
+                        <div>
+                            <p id="biscuit-auto-h2"> <!-- Biscuits per second: <span id="biscuit-auto">0</span> --></p>
                         </div>
                     </div>
+                    <div onclick="incrementcount(event)" id="clicker-biscuit"></div>
+                </div>
+                <!-- Store -->
+                <div class="col-12 col-md-4 p-3 rounded-3" style="background-color:#FFFFFF;">
+                    <div class="text-start container-fluid">
+                        <h2> Biscuit Store</h2>
+                    </div>
+                    <div class="align-items-center justify-content-center list-group" id="The-upgrades-menu">
+                        <?php
+                            if (isset($_SESSION["login"]) && $_SESSION["login"] == true){
+                                echo '<button id="save" style="" onclick="save_progress()"> Save Progress</button>';
+                            }
+                        ?>
+                    </div>
+                    <!-- EEVENT ===!=!=!==! -->
+                    <!-- <div class="container-fluid">
+                        <h2> Events??!??!?! </h2>
+                    </div> -->
                 </div>
             </div>
         </section>
-                            <!-- <div id="main-game">
-                                <div class="main-game-instructions">
-                                    <h2> Welcome to Biscuit Clicker! </h2>
-                                    <p> Click the biscuit to bake a cookie, use cookies to buy upgrades. Attain the upgrade Mr. Biscuit WorldWide to win </p>
-                                </div>
-                                <div class="main-game-info">
-                                    <h2> Biscuits: <span id="biscuit-count"></span></h2>
-                                    <h2 id="biscuit-auto-h2"> <!-- Biscuits per second: <span id="biscuit-auto">0</span></h2> -->
-                                    <!-- <div id="prestige-menu"> 
-                                    </div>
-                                </div>
-                                <img src="./Medium/Bilder/ClickerCookie.png" alt="Click on Biscuit for Biscuits" onclick="incrementcount()" class="clicker-biscuit">
-                            </div> -->
-                            <!-- 
-                            <div id="upgrade-menu">
-                                <div id="The-upgrades-menu">
-                                    <?php
-                                        //if (isset($_SESSION["login"]) && $_SESSION["login"] == true){
-                                        //    echo '<button id="save" style="" onclick="save_progress()"> Save Progress</button>';
-                                        //}
-                                    ?>
-                                    <!-- <div class="upgrade">
-                                        <div class="upgradeheadline">
-                                            <h2> More sleep</h2>
-                                            <p> Sleeping more makes you make more <span class="bold-text"> Gain 0.1 Cookie pr second</span></p>
-                                        </div>
-                                        <button onclick="buy()">Get more sleep<br>Pris: <span id="price">12</span><br>Antal: <span id="antal">0</span></button>
-                                    </div> -->
-                                <!-- </div>
-                            </div> -->
-                            <!-- <footer>
-                                <div class="footer-wrapping">
-                                    <h2 class="footer-title"> Kontakt</h2>
-                                    <a href="mailto:adrian@gmail.com" class="footer-link">Adrian@gmail.com </a>
-                                    <a href="telto:9696969" class="footer-link">&nbsp; +47 96969699</a>
-                                    <!-- <a href="" class="footer-link"></a> -->
-                        
-                                <!-- </div>
-                            </footer> -->
+                          
 
        
     <!-- Bootstrap 5.3 komponent:-->

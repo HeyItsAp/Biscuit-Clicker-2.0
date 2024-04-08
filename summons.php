@@ -43,26 +43,13 @@ if (!isset($_SESSION["login"]) && $_SESSION["login"] != true){
     <?php } ?>
 </head>
 <body>
-    <!-- <nav>
-        <div id="mySidenav" class="sidenav">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="./settings.html"> Settings </a>
-            <a href="./items.html"> Items </a>
-            <a href="./summons.html"> Summons</a>
-            <a href="./login.html"> Login / Logout</a>
-        </div>
-        <a href="./index.html" class="Maingamelink"> &lt; Main Game</a>
-        <img src="./Medium/Bilder/Mainlogo.png" class="Cookie-menu" onclick="openNav()">
-        <div class="Ham-icon" id="Ham-icon-id" onclick="SelectHamIcon(this), openNav()">
-            <div class="Ham-icon-1"></div>
-            <div class="Ham-icon-2"></div>
-            <div class="Ham-icon-3"></div>
-        </div>
-    </nav> -->
     <?php 
         require_once "php_requires/nav.php";
+        require_once "php_requires/vital_info.php";
+
     ?>
-        <div id="Summons" class="container-lg d-flex justify-content-center align-items-center flex-column" style="height: 45%;">
+    <section class="container-lg d-flex justify-content-center align-items-center flex-column">
+        <div id="Summons" style="height: 45%;">
             <p id="Stats"> </p>
             <button onclick="pullItem()" id="summon-button" class="btn btn-success animate__animated animate__bounce animate_infinite">Summon Item!</button>
             <p id="Error-msg"> </p>
@@ -70,6 +57,7 @@ if (!isset($_SESSION["login"]) && $_SESSION["login"] != true){
                 <p id="result-text"> </p>
             </div>
         </div>
+    </section>
 
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
