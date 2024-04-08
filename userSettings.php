@@ -86,7 +86,6 @@ if (!isset($_SESSION["login"]) && $_SESSION["login"] != true){
             <h2> Others </h2>
             <a href="logout.php" type="button" style="btn btn-outline-primary"> Logg ut her </a>
         </div>
-
     </div>
 
 
