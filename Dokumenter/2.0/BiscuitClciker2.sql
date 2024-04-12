@@ -5,19 +5,19 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema biscuit-clicker-2.0
+-- Schema biscuitclicker2
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema biscuit-clicker-2.0
+-- Schema biscuitclicker2
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `biscuit-clicker-2.0` DEFAULT CHARACTER SET utf8 ;
-USE `biscuit-clicker-2.0` ;
+CREATE SCHEMA IF NOT EXISTS `biscuitclicker2` DEFAULT CHARACTER SET utf8 ;
+USE `biscuitclicker2` ;
 
 -- -----------------------------------------------------
--- Table `biscuit-clicker-2.0`.`user`
+-- Table `biscuitclicker2`.`user`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `biscuit-clicker-2.0`.`user` (
+CREATE TABLE IF NOT EXISTS `biscuitclicker2`.`user` (
   `id_user` INT NOT NULL AUTO_INCREMENT,
   `DisplayName` VARCHAR(255) NOT NULL DEFAULT 'ClickerEnthuisat',
   `username` VARCHAR(255) NOT NULL,
@@ -31,27 +31,27 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `biscuit-clicker-2.0`.`biscuit_progress`
+-- Table `biscuitclicker2`.`biscuit_progress`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `biscuit-clicker-2.0`.`biscuit_progress` (
+CREATE TABLE IF NOT EXISTS `biscuitclicker2`.`biscuit_progress` (
   `id_progress` INT NOT NULL AUTO_INCREMENT,
   `id_foregin_user` INT NOT NULL,
-  `biscuit_count` BIGINT NOT NULL,
-  `prestige_count` BIGINT NOT NULL,
+  `biscuit_count` BIGINT NOT NULL DEFAULT 0,
+  `prestige_count` BIGINT NOT NULL DEFAULT 0,
   PRIMARY KEY (`id_progress`),
   INDEX `fk_biscuit_progress_user_idx` (`id_foregin_user` ASC),
   CONSTRAINT `fk_biscuit_progress_user`
     FOREIGN KEY (`id_foregin_user`)
-    REFERENCES `biscuit-clicker-2.0`.`user` (`id_user`)
+    REFERENCES `biscuitclicker2`.`user` (`id_user`)
     ON DELETE CASCADE
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `biscuit-clicker-2.0`.`upgrades`
+-- Table `biscuitclicker2`.`upgrades`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `biscuit-clicker-2.0`.`upgrades` (
+CREATE TABLE IF NOT EXISTS `biscuitclicker2`.`upgrades` (
   `id_upgrades` INT NOT NULL AUTO_INCREMENT,
   `upgrade_navn` VARCHAR(255) NOT NULL,
   `upgrade_headline` VARCHAR(255) NOT NULL,
@@ -64,9 +64,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `biscuit-clicker-2.0`.`user_has_upgrades`
+-- Table `biscuitclicker2`.`user_has_upgrades`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `biscuit-clicker-2.0`.`user_has_upgrades` (
+CREATE TABLE IF NOT EXISTS `biscuitclicker2`.`user_has_upgrades` (
   `user_has_upgrade_id` INT NOT NULL,
   `upgrade_in_question_id` INT NOT NULL,
   `upgrade_antall` BIGINT NOT NULL,
@@ -75,21 +75,21 @@ CREATE TABLE IF NOT EXISTS `biscuit-clicker-2.0`.`user_has_upgrades` (
   INDEX `fk_user_has_upgrades_user1_idx` (`user_has_upgrade_id` ASC),
   CONSTRAINT `fk_user_has_upgrades_user1`
     FOREIGN KEY (`user_has_upgrade_id`)
-    REFERENCES `biscuit-clicker-2.0`.`user` (`id_user`)
+    REFERENCES `biscuitclicker2`.`user` (`id_user`)
     ON DELETE CASCADE
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_user_has_upgrades_upgrades1`
     FOREIGN KEY (`upgrade_in_question_id`)
-    REFERENCES `biscuit-clicker-2.0`.`upgrades` (`id_upgrades`)
+    REFERENCES `biscuitclicker2`.`upgrades` (`id_upgrades`)
     ON DELETE CASCADE
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `biscuit-clicker-2.0`.`items`
+-- Table `biscuitclicker2`.`items`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `biscuit-clicker-2.0`.`items` (
+CREATE TABLE IF NOT EXISTS `biscuitclicker2`.`items` (
   `id_items` INT NOT NULL AUTO_INCREMENT,
   `item_navn` VARCHAR(255) NOT NULL,
   `item_increase` INT NOT NULL,
@@ -100,9 +100,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `biscuit-clicker-2.0`.`user_has_items`
+-- Table `biscuitclicker2`.`user_has_items`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `biscuit-clicker-2.0`.`user_has_items` (
+CREATE TABLE IF NOT EXISTS `biscuitclicker2`.`user_has_items` (
   `user_has_item_id` INT NOT NULL,
   `item_in_question_id` INT NOT NULL,
   `items_obtained` TINYINT NOT NULL DEFAULT 0,
@@ -111,12 +111,12 @@ CREATE TABLE IF NOT EXISTS `biscuit-clicker-2.0`.`user_has_items` (
   INDEX `fk_user_has_items_user1_idx` (`user_has_item_id` ASC),
   CONSTRAINT `fk_user_has_items_user1`
     FOREIGN KEY (`user_has_item_id`)
-    REFERENCES `biscuit-clicker-2.0`.`user` (`id_user`)
+    REFERENCES `biscuitclicker2`.`user` (`id_user`)
     ON DELETE CASCADE
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_user_has_items_items1`
     FOREIGN KEY (`item_in_question_id`)
-    REFERENCES `biscuit-clicker-2.0`.`items` (`id_items`)
+    REFERENCES `biscuitclicker2`.`items` (`id_items`)
     ON DELETE CASCADE
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -125,45 +125,48 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+
+
 -- --------------------------------------------------------
 -- Triggers
 -- --------------------------------------------------------
 DELIMITER //
 
 CREATE TRIGGER trigger_upgrades_new_update
-AFTER INSERT ON `biscuit-clicker-2.0`.`upgrades`
+AFTER INSERT ON `biscuitclicker2`.`upgrades`
 FOR EACH ROW
 BEGIN
     -- Trigger body with multiple SQL statements
-    INSERT INTO `biscuit-clicker-2.0`.`user_has_upgrades` (`user_has_upgrade_id`, `upgrade_in_question_id`, `upgrade_antall`)
-    SELECT id_user, NEW.id_upgrades, 0 FROM `biscuit-clicker-2.0`.`user`;
+    INSERT INTO `biscuitclicker2`.`user_has_upgrades` (`user_has_upgrade_id`, `upgrade_in_question_id`, `upgrade_antall`)
+    SELECT id_user, NEW.id_upgrades, 0 FROM `biscuitclicker20`.`user`;
 END//
 
 CREATE TRIGGER trigger_upgrades_new_user
-AFTER INSERT ON `biscuit-clicker-2.0`.`user`
+AFTER INSERT ON `biscuitclicker2`.`user`
 FOR EACH ROW
 BEGIN
     -- Trigger body with multiple SQL statements
-    INSERT INTO `biscuit-clicker-2.0`.`user_has_upgrades` (`user_has_upgrade_id`, `upgrade_in_question_id`, `upgrade_antall`)
-    SELECT NEW.id_user, id_upgrades, 0 FROM `biscuit-clicker-2.0`.`upgrades`;
+    INSERT INTO `biscuitclicker2`.`user_has_upgrades` (`user_has_upgrade_id`, `upgrade_in_question_id`, `upgrade_antall`)
+    SELECT NEW.id_user, id_upgrades, 0 FROM `biscuitclicker2`.`upgrades`;
 END//
 
 CREATE TRIGGER trigger_items_new_item
-AFTER INSERT ON `biscuit-clicker-2.0`.`items`
+AFTER INSERT ON `biscuitclicker2`.`items`
 FOR EACH ROW
 BEGIN
     -- Trigger body with multiple SQL statements
-    INSERT INTO `biscuit-clicker-2.0`.`user_has_items` (`user_has_item_id`, `item_in_question_id`, `items_obtained`)
-    SELECT id_user, NEW.id_items, 0 FROM `biscuit-clicker-2.0`.`user`;
+    INSERT INTO `biscuitclicker2`.`user_has_items` (`user_has_item_id`, `item_in_question_id`, `items_obtained`)
+    SELECT id_user, NEW.id_items, 0 FROM `biscuitclicker2`.`user`;
 END//
 
 CREATE TRIGGER trigger_items_new_user
-AFTER INSERT ON `biscuit-clicker-2.0`.`user`
+AFTER INSERT ON `biscuitclicker2`.`user`
 FOR EACH ROW
 BEGIN
     -- Trigger body with multiple SQL statements
-    INSERT INTO `biscuit-clicker-2.0`.`user_has_items` (`user_has_item_id`, `item_in_question_id`, `items_obtained`)
-    SELECT NEW.id_user, id_items, 0 FROM `biscuit-clicker-2.0`.`items`;
+    INSERT INTO `biscuitclicker2`.`user_has_items` (`user_has_item_id`, `item_in_question_id`, `items_obtained`)
+    SELECT NEW.id_user, id_items, 0 FROM `biscuitclicker2`.`items`;
 END//
 DELIMITER ;
 -- --------------------------------------------------------
@@ -184,35 +187,31 @@ INSERT INTO upgrades (upgrade_navn, upgrade_headline, upgrade_unlocked, upgrade_
 INSERT INTO items (item_navn, item_increase, item_rarity, item_beskrivelse) VALUES ('Disbled Kid', 0, 'Trash', 'Poor guy');
 INSERT INTO items (item_navn, item_increase, item_rarity, item_beskrivelse) VALUES ('Sakura (Fra Naurto)', 0, 'Trash', 'Annoying Customer');
 INSERT INTO items (item_navn, item_increase, item_rarity, item_beskrivelse) VALUES ('Santa Claus', 0, 'Trash', 'Sadly, did not come to give gifts.');
-
-INSERT INTO items (item_navn, item_increase, item_rarity, item_beskrivelse) VALUES ('Black hole', 25, 'Rare', 'You learned how to refine energy and able to extract the energy of a black hole.');
-INSERT INTO items (item_navn, item_increase, item_rarity, item_beskrivelse) VALUES ('Skibidi Toilet', 25, 'Rare', 'Premium Toilet.');
-INSERT INTO items (item_navn, item_increase, item_rarity, item_beskrivelse) VALUES ('Whip from the good old times.', 25, 'Rare', 'The best motivator for any type of workplace.');
-INSERT INTO items (item_navn, item_increase, item_rarity, item_beskrivelse) VALUES ('Chainsaw man', 25, 'Rare', 'Honest worker, but dumb.');
-INSERT INTO items (item_navn, item_increase, item_rarity, item_beskrivelse) VALUES ('W Rizz.', 25, 'Rare', 'W Rizz.');
-INSERT INTO items (item_navn, item_increase, item_rarity, item_beskrivelse) VALUES ('Mommy', 25 , 'Rare', 'How the hell is my mom in the game?');
-
-
-INSERT INTO items (item_navn, item_increase, item_rarity, item_beskrivelse) VALUES ('H Magnus H', 250, 'Epic', 'Add him on Epic Games.');
-INSERT INTO items (item_navn, item_increase, item_rarity, item_beskrivelse) VALUES ("Dad's Milk", 250, 'Epic', 'Your dad came home with premium milk.');
-INSERT INTO items (item_navn, item_increase, item_rarity, item_beskrivelse) VALUES ('Water bending', 250, 'Epic', 'Avatar reference.');
-
-INSERT INTO items (item_navn, item_increase, item_rarity, item_beskrivelse) VALUES ('Nihodi ', 5000, 'Legendary', 'Good job. You won.');
-INSERT INTO items (item_navn, item_increase, item_rarity, item_beskrivelse) VALUES ('Life.', 2000, 'Legendary', 'You finally go outside.');
+  INSERT INTO items (item_navn, item_increase, item_rarity, item_beskrivelse) VALUES ('Black hole', 25, 'Rare', 'You learned how to refine energy and able to extract the energy of a black hole.');
+  INSERT INTO items (item_navn, item_increase, item_rarity, item_beskrivelse) VALUES ('Skibidi Toilet', 25, 'Rare', 'Premium Toilet.');
+  INSERT INTO items (item_navn, item_increase, item_rarity, item_beskrivelse) VALUES ('Whip from the good old times.', 25, 'Rare', 'The best motivator for any type of workplace.');
+  INSERT INTO items (item_navn, item_increase, item_rarity, item_beskrivelse) VALUES ('Chainsaw man', 25, 'Rare', 'Honest worker, but dumb.');
+  INSERT INTO items (item_navn, item_increase, item_rarity, item_beskrivelse) VALUES ('W Rizz.', 25, 'Rare', 'W Rizz.');
+  INSERT INTO items (item_navn, item_increase, item_rarity, item_beskrivelse) VALUES ('Mommy', 25 , 'Rare', 'How the hell is my mom in the game?');
+    INSERT INTO items (item_navn, item_increase, item_rarity, item_beskrivelse) VALUES ('H Magnus H', 250, 'Epic', 'Add him on Epic Games.');
+    INSERT INTO items (item_navn, item_increase, item_rarity, item_beskrivelse) VALUES ("Dad's Milk", 250, 'Epic', 'Your dad came home with premium milk.');
+    INSERT INTO items (item_navn, item_increase, item_rarity, item_beskrivelse) VALUES ('Water bending', 250, 'Epic', 'Avatar reference.');
+      INSERT INTO items (item_navn, item_increase, item_rarity, item_beskrivelse) VALUES ('Nihodi ', 5000, 'Legendary', 'Good job. You won.');
+      INSERT INTO items (item_navn, item_increase, item_rarity, item_beskrivelse) VALUES ('Life.', 2000, 'Legendary', 'You finally go outside.');
 
 
 INSERT INTO user (DisplayName, username, pwd, clearance) VALUES ('BiscuitAdmin', 'admin', 'admin123', 1);
 INSERT INTO user (DisplayName, username, pwd) VALUES ('Clicker', 'bruker', 'bruker123');
 
--- WORK WITH TRIGGERS
 
 -- --------------------------------------------------------
 -- Users
 -- --------------------------------------------------------
-CREATE USER adminClicker@localhost IDENTIFIED BY 'admin123';
-GRANT ALL PRIVILEGES ON *.* TO 'adminUser'@localhost IDENTIFIED BY 'admin123';
 
-CREATE USER userClicker@localhost IDENTIFIED BY 'user123';
-GRANT SELECT, INSERT ON 'bicuit-clicker-2.0'.* TO 'kundeUser'@localhost IDENTIFIED BY 'user123';
+CREATE USER 'adminClicker'@'localhost' IDENTIFIED BY 'admin123';
+GRANT ALL PRIVILEGES ON *.* TO 'adminClicker'@'localhost' IDENTIFIED BY 'admin123';
+
+CREATE USER 'userClicker'@'localhost' IDENTIFIED BY 'user123';
+GRANT SELECT, INSERT ON biscuitclicker2.* TO 'userClicker'@'localhost' IDENTIFIED BY 'user123';
 
 

@@ -19,19 +19,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     echo $new_confpwd . '<br>';
 
     if(empty($new_username) || empty($new_pwd) || empty($new_confpwd) || empty($new_display)) {
-        header( "refresh:0; url=../settings.php" );
+        header( "refresh:0; url=../userSettings.php" );
         echo '<script> alert("Something is missing");</script>';
         die("");
     }
     if($new_pwd !== $new_confpwd) {
-        header( "refresh:0; url=../settings.php" );
+        header( "refresh:0; url=../userSettings.php" );
         echo '<script> alert("Passwords dont match");</script>';
         die("");
     }
 
     try {
         require_once "dbh-inc.php"; 
-        $query = "UPDATE user SET DisplayName = :displayname, username = :username, pwd = :pwd WHERE id = :id";
+        $query = "UPDATE user SET DisplayName = :displayname, username = :username, pwd = :pwd WHERE id_user = :id";
         $stmt = $pdo -> prepare($query);
         $stmt -> bindParam(':displayname', $new_display);
         $stmt -> bindParam(':username', $new_username);
@@ -56,5 +56,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         die("Failed : " . $e->getMessage()); 
     }
 } else {
-    header("Location: ../login.php");
+    header("Location: ../index.php");
 }

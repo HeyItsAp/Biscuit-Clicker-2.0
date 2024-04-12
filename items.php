@@ -23,7 +23,15 @@ if (!isset($_SESSION["login"]) && $_SESSION["login"] != true){
     <?php } else { ?>
         <meta name="Login" content="0">
     <?php } ?>
-
+    <style>
+        body {
+            background-color:#D2B48C;
+            
+            font-family: mr-eaves-xl-modern, sans-serif;
+            font-style: normal;
+            font-weight: 400;
+        }
+    </style>
 </head>
 <body>
     <?php 

@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     try {
         require_once "dbh-inc.php"; 
-        $query = "SELECT id, DisplayName, username, pwd FROM user WHERE username = :username AND pwd = :pwd;";
+        $query = "SELECT id_user, DisplayName, username, pwd FROM user WHERE username = :username AND pwd = :pwd;";
         $stmt = $pdo -> prepare($query);
         $stmt -> bindParam(':username', $username);
         $stmt -> bindParam(':pwd', $pwd);        
@@ -39,8 +39,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['login'] = true;
             $_SESSION['username'] = $username;
             $_SESSION['pwd'] = $pwd;
-            $_SESSION['id'] = $result['id'];
+            $_SESSION['id'] = $result['id_user'];
             $_SESSION['Display_Name'] = $result['DisplayName'];
+            $_SESSION['clearance'] = $result['clearance'];
+
 
 
             $pdo = null;

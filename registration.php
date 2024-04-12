@@ -24,34 +24,35 @@
             font-weight: 400;   
 
         }
-        .animation-1 {
-            animation: FadeSlideIn 2s ease-in-out;
-            opacity: 1;
 
-        }
-        .animation-2 {
-            animation: FadeSlideIn 2s ease-in-out;
-            animation-delay: 2s;
-        }
-        @keyframes FadeSlideIn {
-            from {
-                opacity: 0;
-                transform: translate(0px, -45px);
-            }
-            to {
+            .animation-1 {
+                animation: FadeSlideIn 2s ease-in-out;
                 opacity: 1;
-                transform: translate(0px, 0px);
-            }
-        }
 
-        #mjaau{
-            background-color: #D2B48C;
-            width: 249px;
-            height: 250px;
-            position: absolute;
-            right: 0px;
-            top: 380px;
-        } 
+            }
+            .animation-2 {
+                animation: FadeSlideIn 2s ease-in-out;
+                animation-delay: 2s;
+            }
+            @keyframes FadeSlideIn {
+                from {
+                    opacity: 0;
+                    transform: translate(0px, -45px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translate(0px, 0px);
+                }
+            }
+
+            #mjaau{
+                background-color: #D2B48C;
+                width: 249px;
+                height: 250px;
+                position: absolute;
+                right: 0px;
+                top: 380px;
+            } 
     </style>
 </head>
 
@@ -70,7 +71,6 @@
                 <!-- Stationary cooikie --><!-- <iframe src='https://my.spline.design/untitled-3678d236cbeaee7036a9de60a321974c/' frameborder='0' width='100%' height='450px'></iframe> -->
                 <!-- Rotating cookie --><iframe src='https://my.spline.design/untitled-3678d236cbeaee7036a9de60a321974c/' frameborder='0' width='100%' height='450px%'></iframe>
             </div>
-
             <div id="mjaau">
 
             </div>
@@ -79,23 +79,24 @@
             <form method="post" action="php_requires/res_h.php">
                 <h2>Create your user</h2>
                 <div class="mb-3">
-                    <label for="display_name" class="form-label"> Display name </label>
-                    <input class="form-control" type="text" name="display_name" placeholder='"BiscuitMaster123"'>
+                    <label for="DisplayName" class="form-label"> Display name </label>
+                    <input class="form-control" type="text" name="DisplayName" placeholder='BiscuitMaster123'>
                     <p class="form-text">Display name is used to represent you in events and leaderboard</p>
                     <p class="form-text">No duplicate display names can be created </p>
 
                 </div>
                 <div class="mb-3">
-                    <label for="display_name" class="form-label"> Username </label>
-                    <input class="form-control" type="text" name="username" placeholder='"cookiehater"'>
+                    <label for="username" class="form-label"> Username </label>
+                    <input class="form-control" type="text" name="username" placeholder='cookiehater'>
                     <p class="form-text">No duplicate display names can be created </p>
                 </div>
                 <div class="mb-3">
-                    <label for="display_name" class="form-label"> Password </label>
-                    <input class="form-control" type="text" name="username" placeholder='"ihatecookies"'>
+                    <label for="pwd" class="form-label"> Password </label>
+                    <input class="form-control" type="password" name="pwd" placeholder='ihatecookies'>
                 </div>
-                <div>
+                <div class="d-flex justify-content-between">
                     <input class="btn btn-primary btn-block" type="submit" name="submitSignUp" value="Create user">
+                    <p class="btn mb-0" style="color:#009900;"> To login: Head back to the main game </p>
                 </div>
             </form> 
         </section>

@@ -18,22 +18,24 @@ session_start();
         <meta name="Login" content="0">
     <?php } ?>
     <style>
-    #clicker-biscuit {
-        transition: 0.09s; 
-        background-image: url("./Medium/Bilder/ClickerCookie.png");
-        background-size: 300px;
-        position: relative;
-        width: 300px;
-        height: 300px;
+    /* For +1 effects */
+        #clicker-biscuit {
+            transition: 0.09s; 
+            background-image: url("./Medium/Bilder/ClickerCookie.png");
+            background-size: 300px;
+            position: relative;
+            width: 300px;
+            height: 300px;
 
-    }
-    #clicker-biscuit:hover {
-        scale: 1.1;
-    }
-    #clicker-biscuit:active {
-        scale: 0.9;
-        transition: 0.09s;
-    }
+        }
+        #clicker-biscuit:hover {
+            scale: 1.1;
+        }
+        #clicker-biscuit:active {
+            scale: 0.9;
+            transition: 0.09s;
+        }
+    
     body {
         background-color:#D2B48C;
         

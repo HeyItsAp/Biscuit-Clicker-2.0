@@ -10,12 +10,12 @@
                     <i class="bi bi-envelope text-white h4"></i>
                 </a>
                 <?php 
-                    // if (isset($_SESSION["login"]) && $_SESSION["login"] == true){
-                    //     print '<a href="userSettings.php" class="navbar-brand">';
-                    //     print '<i class="bi bi-person-circle"></i>';
-                    //     echo $_SESSION["Display_Name"];
-                    //     print'</a>';
-                    // }
+                    if (isset($_SESSION["login"]) && $_SESSION["login"] == true){
+                        print '<a href="userSettings.php" class="navbar-brand d-flex justify-contet-center align-items-center">';
+                        print '<i class="bi bi-person-circle text-white h4 m-0"></i>';
+                        print '<p class="text-white ms-2 m-0">' . $_SESSION["Display_Name"] . '</p>';
+                        print'</a>';
+                    }
                 ?>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav"
@@ -26,13 +26,16 @@
                 <div class="collapse navbar-collapse justify-content-end align-center" id="main-nav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a href="" class="nav-link bg-warning rounded-2 px-4 mx-2" data-bs-toggle="modal" data-bs-target="#req-modal2">Login</a>
+                            <?php echo isset($_SESSION['login']) ? '<a href="logout.php" class="nav-link text-white">Log out</a>' : '<a href="" class="nav-link bg-warning rounded-2 px-4 mx-2" data-bs-toggle="modal" data-bs-target="#req-modal2">Login</a>'; ?>
                         </li>
                         <li class="nav-item">
-                            <a href="summons.php" class="nav-link text-white mx-2">Summons</a>
+                           
+                            <?php echo isset($_SESSION['login']) ? '<a href="summons.php" class="nav-link bg-warning rounded-2 px-4 mx-2">Summons </a>' : '<a href="summons.php" class="nav-link text-white mx-2">Summons</a>'; ?>
+
                         </li>
                         <li class="nav-item">
-                            <a href="items.php" class="nav-link text-white mx-2">Items</a>
+                            <?php echo isset($_SESSION['login']) ? '<a href="items.php" class="nav-link bg-warning rounded-2 px-4 mx-2">Items</a>' : '<a href="items.php" class="nav-link text-white mx-2">Items</a>'; ?>
+
                         </li>
                     </ul>
                 </div>
@@ -53,14 +56,14 @@
                                 <span class="input-group-text">
                                     <i class="bi bi-chat-right-dots-fill"></i>
                                 </span>
-                                <input type="email" name="username" class="form-control" placeholder="e.g. Yourmom@example.com">
+                                <input type="text" name="username" class="form-control" placeholder="username">
                             </div>
                             <label for="password" class="form-label"> Password </label>
                             <div class="mb-4 input-group">
                                 <span class="input-group-text">
                                     <i class="bi bi-asterisk"></i>
                                 </span>
-                                <input type="text" name="password" class="form-control" placeholder="e.g. Yourmom">
+                                <input type="password" name="password" class="form-control" placeholder="password">
                             </div>
                             <div class="mb-4 input-group">
                             </div>

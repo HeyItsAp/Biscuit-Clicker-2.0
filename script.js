@@ -84,7 +84,7 @@ function incrementcount(event) {
         UpdateBiscuitCount();
         UpdatePrestige();
 
-        console.log("Biscuit count: " + biscuitCount)
+        console.log("Autoing: Biscuit count: " + biscuitCount)
       }, 1000)
       function UpdateBiscuitCount(){
         let biscuitCountElement = document.getElementById("biscuit-count");
@@ -149,195 +149,19 @@ function UpdatePrestige(){
 
       }
 
-  // Upgrades
-// Can be modified 
-var Upgrades = [
-  {
-    navn: "Better sleep",
-    headline: "Get better sleep",
-    unlocked: true,
-    antal: 0,
-    value: 0.5,
-    cost: 50,
-    des: "Sleeping more makes you make more. <br><span class='bold-text'> Gain 0.5 Cookie pr second</span>"
-  },
-  {
-    navn: "Dinner every day",
-    headline: "Eat more",
-    unlocked: false,
-    antal: 0,
-    value: 2,
-    cost: 200,
-    des: "With the biscuits your making, you can finally but some good food. <br><span class='bold-text'> Gain 2 Cookie pr second</span>"
-  },
-  {
-    navn: "Education",
-    headline: "Actually learn lol",
-    unlocked: false,
-    antal: 0,
-    value: 20,
-    cost: 1000,
-    des: "Go back to elementary school and learn the basics. <br><span class='bold-text'> Gain 20 Cookie pr second</span>"
-  },
-  {
-    navn: "Extra lessons",
-    headline: "Extra steps",
-    unlocked: false,
-    antal: 0,
-    value: 50,
-    cost: 2000,
-    des: "You lack behind, but with hard work you slowly make way. <br><span class='bold-text'> Gain 50 Cookie pr second</span>"
-  },
-  {
-    navn: "Collage",
-    headline: "Big step",
-    unlocked: false,
-    antal: 0,
-    value: 200,
-    cost: 5000,
-    des: "You go to Collage, your friends respect your leave and run the store <br><span class='bold-text'> Gain 200 Cookie pr second</span>"
-  },
-  {
-    navn: "Working Graduate",
-    headline: "Smart boi",
-    unlocked: false,
-    antal: 0,
-    value: 2000,
-    cost: 10000,
-    des: "You come back with more knowlegde than ever before <br><span class='bold-text'> Gain 2000 Cookie pr second</span>"
-  },
-  {
-    navn: "Political effects",
-    headline: "Joe Biden",
-    unlocked: false,
-    antal: 0,
-    value: 9,
-    cost: 10,
-    des: "The new political polich changes bisnis as a whole <br><span class='bold-text'> Gain 9 Cookie pr second</span>"
-  },
-  {
-    navn: "Chance to expand",
-    headline: "I'll Take it!",
-    unlocked: false,
-    antal: 0,
-    value: 10000,
-    cost: 5000000,
-    des: "You buy local emptu spaces to expand <br><span class='bold-text'> Gain 9 Cookie pr second</span>"
-  },
-  {
-    navn: "Cooperation",
-    headline: "Stonks",
-    unlocked: false,
-    antal: 0,
-    value: 200000,
-    cost: 100000000,
-    des: "You make deals with other bisnisess, and become one big cooperation <br><span class='bold-text'> Gain 9 Cookie pr second</span>"
-  },
-  {
-    navn: "Mr. Biscuit WorldWide",
-    headline: "Become Apple",
-    unlocked: false,
-    antal: 0,
-    value: 200000,
-    cost: 100000000,
-    des: "This is the name of your offical popular World wide cookies<br><span class='bold-text'> Gain 9 Cookie pr second</span>"
-  }
-];
 
+
+// 
+
+    // Upgrades
+
+        //
+
+// Can be modified array:
+var Upgrades = []; // Data inserted via ajax/php
+  
 // Copy with no mods
-
-var orignalupgrade = [
-  {
-    navn: "Better sleep",
-    headline: "Get better sleep",
-    unlocked: true,
-    antal: 0,
-    value: 0.5,
-    cost: 50,
-    des: "Sleeping more makes you make more. <br><span class='bold-text'> Gain 0.5 Cookie pr second</span>"
-  },
-  {
-    navn: "Dinner every day",
-    headline: "Eat more",
-    unlocked: false,
-    antal: 0,
-    value: 2,
-    cost: 200,
-    des: "With the biscuits your making, you can finally but some good food. <br><span class='bold-text'> Gain 2 Cookie pr second</span>"
-  },
-  {
-    navn: "Education",
-    headline: "Actually learn lol",
-    unlocked: false,
-    antal: 0,
-    value: 20,
-    cost: 1000,
-    des: "You actually learn how to cook :skull: <br><span class='bold-text'> Gain 20 Cookie pr second</span>"
-  },
-  {
-    navn: "Extra lessons",
-    headline: "Extra steps",
-    unlocked: false,
-    antal: 0,
-    value: 50,
-    cost: 2000,
-    des: "Go back to elmentary school and learn the basics <br><span class='bold-text'> Gain 50 Cookie pr second</span>"
-  },
-  {
-    navn: "Collage",
-    headline: "Big step",
-    unlocked: false,
-    antal: 0,
-    value: 200,
-    cost: 5000,
-    des: "You go to Collage, your friends respect your leave and run the store <br><span class='bold-text'> Gain 200 Cookie pr second</span>"
-  },
-  {
-    navn: "Working Graduate",
-    headline: "Smart boi",
-    unlocked: false,
-    antal: 0,
-    value: 2000,
-    cost: 10000,
-    des: "You come back with more knowlegde than ever before <br><span class='bold-text'> Gain 2000 Cookie pr second</span>"
-  },
-  {
-    navn: "Political effects",
-    headline: "Joe Biden",
-    unlocked: false,
-    antal: 0,
-    value: 9,
-    cost: 10,
-    des: "The new political polich changes bisnis as a whole <br><span class='bold-text'> Gain 9 Cookie pr second</span>"
-  },
-  {
-    navn: "Chance to expand",
-    headline: "I'll Take it!",
-    unlocked: false,
-    antal: 0,
-    value: 10000,
-    cost: 5000000,
-    des: "You buy local emptu spaces to expand <br><span class='bold-text'> Gain 9 Cookie pr second</span>"
-  },
-  {
-    navn: "Cooperation",
-    headline: "Stonks",
-    unlocked: false,
-    antal: 0,
-    value: 200000,
-    cost: 100000000,
-    des: "You make deals with other bisnisess, and become one big cooperation <br><span class='bold-text'> Gain 9 Cookie pr second</span>"
-  },
-  {
-    navn: "Mr. Biscuit WorldWide",
-    headline: "Become Apple",
-    unlocked: false,
-    antal: 0,
-    value: 200000,
-    cost: 100000000,
-    des: "This is the name of your offical popular World wide cookies<br><span class='bold-text'> Gain 9 Cookie pr second</span>"
-  }
-];
+var orignalupgrade = []; // Data inserted via ajax/php + if logged in
 
 
 function RefreshUpgradesElem(){
@@ -451,111 +275,111 @@ var items = [
   //<span class='bold-text'></span> For bold text
 
   // Trash tier items
-  // Fix us
-  {
-    navn: "Disabled Kid",
-    Rarity: "Trash",
-    increment_increase: 0,
-    beskrivelse: "Poor guy", // Span for bold text
-    Obtained: true,
-  },
-  {
-    navn: "Sakura (Fra Naurto)",
-    increment_increase: 0,
-    Rarity: "Trash",
-    beskrivelse: "Annoying Customer", // Span for bold text
-    Obtained: true,
-  },
-  {
-    navn: "Santa Claus",
-    increment_increase: 0,
-    Rarity: "Trash",
-    beskrivelse: "Sadly, did not come to give gifts.", // Span for bold text
-    Obtained: true,
-  },
+  // // Fix us
+  // {
+  //   navn: "Disabled Kid",
+  //   Rarity: "Trash",
+  //   increment_increase: 0,
+  //   beskrivelse: "Poor guy", // Span for bold text
+  //   Obtained: true,
+  // },
+  // {
+  //   navn: "Sakura (Fra Naurto)",
+  //   increment_increase: 0,
+  //   Rarity: "Trash",
+  //   beskrivelse: "Annoying Customer", // Span for bold text
+  //   Obtained: true,
+  // },
+  // {
+  //   navn: "Santa Claus",
+  //   increment_increase: 0,
+  //   Rarity: "Trash",
+  //   beskrivelse: "Sadly, did not come to give gifts.", // Span for bold text
+  //   Obtained: true,
+  // },
   
-  // Rare items
-  {
-    navn: "Black hole",
-    Rarity: "Rare",
-    increment_increase: 25,
-    beskrivelse: "You learned how to refine energy and able to extract the energy of a black hole.", // Span for bold text
-    Obtained: true,
-  },
+  // // Rare items
+  // {
+  //   navn: "Black hole",
+  //   Rarity: "Rare",
+  //   increment_increase: 25,
+  //   beskrivelse: "You learned how to refine energy and able to extract the energy of a black hole.", // Span for bold text
+  //   Obtained: true,
+  // },
 
-  {
-    navn: "Skibidi Toilet",
-    Rarity: "Rare",
-    increment_increase: 25,
-    beskrivelse: "Premium Toilet.", // Span for bold text
-    Obtained: true,
-  }, 
-  {
-    navn: "Whip from the good old times.",
-    Rarity: "Rare",
-    increment_increase: 50,
-    beskrivelse: "The best motivator for any type of workplace.", // Span for bold text
-    Obtained: true,
-  }, 
-  {
-    navn: "Chainsaw man",
-    Rarity: "Rare",
-    increment_increase: 25,
-    beskrivelse: "Honest worker, but dumb.", // Span for bold text
-    Obtained: true,
-  }, 
-  {
-    navn: "W Rizz.",
-    Rarity: "Rare",
-    increment_increase: 25,
-    beskrivelse: "W Rizz.", // Span for bold text
-    Obtained: true,
-  }, 
-  {
-    navn: "Creator's Mother",
-    increment_increase: 25,
-    Rarity: "Rare",
-    beskrivelse: "How the hell is my mom in the game?", // Span for bold text
-    Obtained: false,
-  },
+  // {
+  //   navn: "Skibidi Toilet",
+  //   Rarity: "Rare",
+  //   increment_increase: 25,
+  //   beskrivelse: "Premium Toilet.", // Span for bold text
+  //   Obtained: true,
+  // }, 
+  // {
+  //   navn: "Whip from the good old times.",
+  //   Rarity: "Rare",
+  //   increment_increase: 50,
+  //   beskrivelse: "The best motivator for any type of workplace.", // Span for bold text
+  //   Obtained: true,
+  // }, 
+  // {
+  //   navn: "Chainsaw man",
+  //   Rarity: "Rare",
+  //   increment_increase: 25,
+  //   beskrivelse: "Honest worker, but dumb.", // Span for bold text
+  //   Obtained: true,
+  // }, 
+  // {
+  //   navn: "W Rizz.",
+  //   Rarity: "Rare",
+  //   increment_increase: 25,
+  //   beskrivelse: "W Rizz.", // Span for bold text
+  //   Obtained: true,
+  // }, 
+  // {
+  //   navn: "Creator's Mother",
+  //   increment_increase: 25,
+  //   Rarity: "Rare",
+  //   beskrivelse: "How the hell is my mom in the game?", // Span for bold text
+  //   Obtained: false,
+  // },
 
-  // Epic items
-  {
-    navn: "H Magnus H",
-    increment_increase: 250,
-    Rarity: "Epic",
-    beskrivelse: "Add him on Epic Games.", // Span for bold text
-    Obtained: false,
-  },
-  {
-    navn: "Dad's Milk",
-    increment_increase: 100,
-    Rarity: "Epic",
-    beskrivelse: "Your dad came home with premium milk.", // Span for bold text
-    Obtained: false,
-  },
-  {
-    navn: "Water bending",
-    increment_increase: 100,
-    Rarity: "Epic",
-    beskrivelse: "Avatar reference.", // Span for bold text
-    Obtained: false,
-  },
-  // Legendary 
-  {
-    navn: "Ni-ho-di",
-    increment_increase: 5000,
-    Rarity: "Legendary",
-    beskrivelse: "Good job. You won.", // Span for bold text
-    Obtained: false,
-  },
-  {
-    navn: "Life",
-    increment_increase: 2000,
-    Rarity: "Legendary",
-    beskrivelse: "You finally go outside.", // Span for bold text
-    Obtained: false,
-  }
+  // // Epic items
+  // {
+  //   navn: "H Magnus H",
+  //   increment_increase: 250,
+  //   Rarity: "Epic",
+  //   beskrivelse: "Add him on Epic Games.", // Span for bold text
+  //   Obtained: false,
+  // },
+  // {
+  //   navn: "Dad's Milk",
+  //   increment_increase: 100,
+  //   Rarity: "Epic",
+  //   beskrivelse: "Your dad came home with premium milk.", // Span for bold text
+  //   Obtained: false,
+  // },
+  // {
+  //   navn: "Water bending",
+  //   increment_increase: 100,
+  //   Rarity: "Epic",
+  //   beskrivelse: "Avatar reference.", // Span for bold text
+  //   Obtained: false,
+  // },
+  // // Legendary 
+  // {
+  //   navn: "Ni-ho-di",
+  //   increment_increase: 5000,
+  //   Rarity: "Legendary",
+  //   beskrivelse: "Good job. You won.", // Span for bold text
+  //   Obtained: false,
+  // },
+  // {
+  //   navn: "Life",
+  //   increment_increase: 2000,
+  //   Rarity: "Legendary",
+  //   beskrivelse: "You finally go outside.", // Span for bold text
+  //   Obtained: false,
+  // }
 ]
 if (page == "items.php") {
   function CreateItem(element) {
@@ -753,25 +577,26 @@ function pullItem(){
       triggermodal("Not enough. To summon you need " + Summonreq + ". You have " + biscuitprestige + ".")
   }
 }
+
 // 
 
-    // To PHP / From PHP
+    // Data Retrival / Sending
 
         //
 
-// Logging in
+// Logged inn???!??!?!
 let isloggedinn = document.querySelector("meta[name='Login']").content;
-
 console.log("Is logged inn:" + isloggedinn);
+
+
 if (isloggedinn == 1) {
+  // if logged in
   if (page == "index.php" || page == ""){
     document.getElementById("biscuit-count").innerHTML = "Loading ... ";
   }
-
   console.log("Logged in: True");
-  // if logged in
   $.ajax({
-    url: 'php_requires/dataretrive_ajax.php',
+    url: 'php_requires/loginDataretrive_ajax.php',
     type: 'GET',
     datatype: 'json',
     success: (data) => {
@@ -783,50 +608,58 @@ if (isloggedinn == 1) {
         console.log(user_information);
         // The second object contains an array
 
-      // Update user progress
-        biscuitCount = user_information.biscuit_progress[0].biscuit_count
-        biscuitprestige = user_information.biscuit_progress[0].prestige_count
-        console.log(biscuitprestige)
+      // Update Biscuit progress
+        biscuitCount = user_information["biscuit_progress"][0].biscuit_count;
+        biscuitprestige = user_information["biscuit_progress"][0].prestige_count;
 
     
-      // Update user upgrades
-        for (var element of Upgrades) {
-          let name = element.navn
-          // Check if newCosts has a corresponding key
-          if (user_information.upgrades[0].hasOwnProperty(name)){
-            element.antal = user_information.upgrades[0][name];
-            if(user_information.upgrades[0][name] > 0) {
-              element.unlocked = true;
-              let currentUpgrade = Upgrades.indexOf(element);
-              if (Upgrades[currentUpgrade+1] != undefined){
-                Upgrades[currentUpgrade+1]["unlocked"] = true;
-              }
-            }
+      // Update user UPGRADES
+        user_information["upgrades"].forEach(array => {
+          let upgrade_object = {
+            navn: array.upgrade_navn,
+            headline: array.upgrade_headline,
+            unlocked: false,
+            antal: array.upgrade_antall,
+            value: array.upgrade_value,
+            cost: array.upgrade_cost,
+            des: array.upgrade_des
           }
-          for (let i = 0; i < element.antal; i++) {
-            element.cost = Math.round(element.cost *1.15);
+          Upgrades.push(upgrade_object);
+
+          let Reset_upgrade_object = {
+            navn: array.upgrade_navn,
+            headline: array.upgrade_headline,
+            unlocked: false,
+            antal: 0,
+            value: array.upgrade_value,
+            cost: array.upgrade_cost,
+            des: array.upgrade_des
           }
-        }
+          orignalupgrade.push(Reset_upgrade_object);
+        })
         if (page == "index.php" || page == ""){
+          Upgrades[0].unlocked = true;
           RefreshUpgradesElem();
           UpdateBiscuitAuto();
           UpdatePrestige();
         }
-      // Update items
-        for (var element of items) {
-          let name = element.navn
-          // Check if newCosts has a corresponding key
-          if (user_information.items[0].hasOwnProperty(name)){
-            element.Obtained = user_information.items[0][name];
+        console.log(Upgrades);  
+    
+      // Update user ITEMS
+        user_information["items"].forEach(array => {
+          let item_object = {
+            navn: array.item_navn,
+            increment_increase: array.item_increase,
+            Obtained: array.item_obtained,
+            Rarity: array.item_rarity,
+            beskrivelse: array.beskrivelse,
           }
-        }
-
+          items.push(item_object);
+        })
         Updateincrementvalue();
-        console.log(items)
         // Create items in the items.php
         if (page == "items.php"){
           CreateItems(items); 
-          
         }
         console.log(items)
       // Summons
@@ -844,11 +677,54 @@ if (isloggedinn == 1) {
 
   //
   // TEMPORARY CODE: USED FOR BOOTSTAP CONFIGURATION ONLY 
-  // WHEN LOGGED IN
+  // WHEN LOGGED IN:
   //
-  if (page == "items.php"){
-    CreateItems(items); 
-  }
+    // if (page == "items.php"){
+    //   CreateItems(items); 
+    // }
+
+    $.ajax({
+      url: 'php_requires/defaultDataretrive_ajax.php',
+      type: 'GET',
+      datatype: 'json',
+      success: (data) => {
+        
+          // data is json? Get data anyway
+          console.log(data);
+          var upgrades_from_data = JSON.parse(data);
+          // console.log(user_information.biscuit_progress[0].biscuit_count);
+          console.log(upgrades_from_data);
+          // The second object contains an array
+
+          // Get updates
+          upgrades_from_data[0].forEach(element => {
+            console.log(element);
+            let upgrade_object = {
+              navn: element.upgrade_navn,
+              headline: element.upgrade_headline,
+              unlocked: false,
+              antal: 0,
+              value: element.upgrade_value,
+              cost: element.upgrade_cost,
+              des: element.upgrade_des
+            }
+            Upgrades.push(upgrade_object);
+          });
+
+          if (page == "index.php" || page == ""){
+            Upgrades[0].unlocked = true;
+            RefreshUpgradesElem();
+            UpdateBiscuitAuto();
+            UpdatePrestige();
+          }
+          console.log(Upgrades);  
+      },
+      error: (error) => {
+        console.error('Error fetching data:', error)
+      }
+    });
+} else {
+  console.log("Login error");
 }
 
 // Saving progress

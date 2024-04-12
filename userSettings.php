@@ -57,36 +57,33 @@ if (!isset($_SESSION["login"]) && $_SESSION["login"] != true){
     <section class="container-lg mt-5 p-3 rounded-3" style="background-color: #FFFFFF;">
         <form method="post" action="php_requires/settings_h.php">
             <h2> Update your account</h2>
+            <p class="">All input must be filled, for security reasons.</p>
+
             <div class="mb-2">
                 <label for="new_display" class="form-label"> Display name </label>
-                <input class="form-control" type="text" name="new_display" placeholder='"<?php echo $_SESSION['Display_Name']; ?>"'>
+                <input class="form-control" type="text" name="new_display" placeholder='<?php echo $_SESSION['Display_Name']; ?>'>
                 <p class="form-text">Display name is used to represent you in events and leaderboard</p>
                 <p class="form-text">No duplicate display names can be created </p>
 
             </div>
             <div class="mb-2">
                 <label for="new_username" class="form-label"> Username </label>
-                <input class="form-control" type="text" name="new_username" placeholder='"<?php echo $_SESSION['username']; ?>"'>
+                <input class="form-control" type="text" name="new_username" placeholder='<?php echo $_SESSION['username']; ?>'>
                 <p class="form-text">No duplicate username can be created </p>
 
             </div>
             <div class="mb-2">
                 <label for="new_password" class="form-label"> Password </label>
-                <input class="form-control" type="text" name="new_password" placeholder='"idk"'>
+                <input class="form-control" type="password" name="new_password" placeholder='new password'>
             </div>
             <div class="mb-2">
                 <label for="confirm_password" class="form-label"> Confirm Password </label>
-                <input class="form-control" type="text" name="confirm_password" placeholder='"idk"'>
+                <input class="form-control" type="password" name="confirm_password" placeholder='new password again'>
             </div>
             <div>
                 <input class="btn btn-primary btn-block" type="submit" name="submitSignUp" value="Update">
             </div>
         </form>
-        <div class="my-3">
-            <h2> Others </h2>
-            <a href="logout.php" type="button" style="btn btn-outline-primary"> Logg ut her </a>
-        </div>
-
     </section>
 
 
