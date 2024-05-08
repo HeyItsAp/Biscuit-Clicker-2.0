@@ -42,6 +42,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['id'] = $result['id_user'];
             $_SESSION['Display_Name'] = $result['DisplayName'];
             $_SESSION['clearance'] = $result['clearance'];
+            $_SESSION['autosaving'] = $result['auto_saving'];
+
 
 
 

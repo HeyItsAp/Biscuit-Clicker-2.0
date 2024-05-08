@@ -34,6 +34,36 @@ if (!isset($_SESSION["login"]) && $_SESSION["login"] != true){
         font-style: normal;
         font-weight: 400;
     }
+    
+    .animation {
+        animation: yourmom 10s;
+    }
+    
+    @keyframes yourmom {
+        0% {
+            padding: 280px 410px;
+            background-color: #FFFD91;
+            color: transparent;
+        }
+        15% {
+            background-color: #ADD8E6;
+        }
+        30% {
+            background-color: #1A061F;
+        }
+        42.5% {
+            color: transparent;
+            padding: 60px 40px;
+            background-color: #ADD8E6;
+        }
+        50% {
+            color: #141414;
+            padding-top: 55px;
+            padding-bottom: 200px;
+
+
+        }
+    }
     </style>
         <?php
     if (isset($_SESSION["login"]) && $_SESSION["login"] == true){?>
@@ -48,13 +78,17 @@ if (!isset($_SESSION["login"]) && $_SESSION["login"] != true){
         require_once "php_requires/vital_info.php";
 
     ?>
-    <section class="container-lg d-flex justify-content-center align-items-center flex-column">
-        <div id="Summons" style="height: 45%;">
-            <p id="Stats"> </p>
-            <button onclick="pullItem()" id="summon-button" class="btn btn-success animate__animated animate__bounce animate_infinite">Summon Item!</button>
+    <section class="container-lg d-flex justify-content-center align-items-center flex-column my-5">
+        <div id="Summons" class="text-center container rounded py-2" style="background-color:#FFFFFF;">
+            <div>
+                <h3 class="fs-4">Mystery box</h3>
+                <p>Spend Biscuit Prestige, BP, to get a mystery box sendt to your bakeary. <br> The box might have something useful to aid your biscuit production</p>
+            </div>      
+            <p id="Stats" class="fs-3"> <p>
+            <button onclick="pullItem()" id="summon-button" class="btn btn-success animate__animated animate__pulse animate__infinite">Summon Item!</button>
             <p id="Error-msg"> </p>
-            <div id="result" class="result">
-                <p id="result-text"> </p>
+            <div id="result" class="result fs-3 py-2 px-4 rounded">
+                <p id="result-text" class="" style="background-color: #00FF00;"> </p>
             </div>
         </div>
     </section>

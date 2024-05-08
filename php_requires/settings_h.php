@@ -12,11 +12,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $new_username = validate($_POST['new_username']);
     $new_pwd = validate($_POST['new_password']);
     $new_confpwd = validate($_POST['confirm_password']);
+    if (isset($_POST['auto_save'])){
+        $auto_save = 1;
+    } else {
+        $auto_save = 0;
+    }
 
     echo $new_display . '<br>';
     echo $new_username . '<br>';
     echo $new_pwd . '<br>';
     echo $new_confpwd . '<br>';
+    echo $auto_save . '<br>';
+
 
     if(empty($new_username) || empty($new_pwd) || empty($new_confpwd) || empty($new_display)) {
         header( "refresh:0; url=../userSettings.php" );
@@ -31,11 +38,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     try {
         require_once "dbh-inc.php"; 
-        $query = "UPDATE user SET DisplayName = :displayname, username = :username, pwd = :pwd WHERE id_user = :id";
+        $query = "UPDATE user SET DisplayName = :displayname, username = :username, pwd = :pwd, auto_saving = :auto_saving WHERE id_user = :id";
         $stmt = $pdo -> prepare($query);
         $stmt -> bindParam(':displayname', $new_display);
         $stmt -> bindParam(':username', $new_username);
         $stmt -> bindParam(':pwd', $new_confpwd);          
+        $stmt -> bindParam(':auto_saving', $auto_save);          
         $stmt -> bindParam(':id', $_SESSION['id']);
         $stmt -> execute();
             
@@ -44,6 +52,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['username'] = $new_username;
             $_SESSION['pwd'] = $new_confpwd;
             $_SESSION['Display_Name'] = $new_display;
+            $_SESSION['autosaving'] = $auto_save;
+
 
 
             $pdo = null;

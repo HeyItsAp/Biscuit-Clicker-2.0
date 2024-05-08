@@ -40,7 +40,7 @@ if (!isset($_SESSION["login"]) && $_SESSION["login"] != true){
     <section class="container-lg mt-5">
         <div class="text-center">
             <h1> Your items </h1>
-            <p> Your items are permanent upgrades and increase you biscuit count per click. Get items by "summoning" them </p>
+            <p> Your items are permanent upgrades and increase you biscuit count per click. Get items by buying  A Mystery Box.</p>
             <p id="increment_value"></p>
             <div class="container">
                 <div id="items" class="row my-5 align-items-center justify-content-center g-3">

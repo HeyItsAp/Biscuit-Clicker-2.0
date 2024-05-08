@@ -81,6 +81,16 @@ if (!isset($_SESSION["login"]) && $_SESSION["login"] != true){
                 <input class="form-control" type="password" name="confirm_password" placeholder='new password again'>
             </div>
             <div>
+                <label for="Switch" class="form-label"> Auto save </label>
+            </div>
+            <div class="form-check form-switch mb-2 mt-0">
+                <input class="form-check-input" type="checkbox" role="switch" id="Switch" name="auto_save" <?php echo $_SESSION['autosaving'] == 1 ? "checked" : ""?> >
+                <label class="form-check-label" for="Switch">Enable auto saving</label>
+            </div>
+            <div>
+                <p class="form-text">Saving will accur every 5 minutes, and will automatically refresh your page </p>
+            </div>
+            <div>
                 <input class="btn btn-primary btn-block" type="submit" name="submitSignUp" value="Update">
             </div>
         </form>

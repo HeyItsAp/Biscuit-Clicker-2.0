@@ -1,17 +1,17 @@
         <nav class="navbar navbar-expand-md navbar-light" style="background-color:#8B4513;">
             <div class="container-xxl">
-                <a href="index.php" class="navbar-brand">
+                <a href="index.php" class="navbar-brand hover">
                     <img src="medium/Bilder/Mainlogo.png" alt="Biscuit Clicker Logo" width="60" heigh="48">
                 </a>
-                <a href="https://discord.gg/eEsveqpyyP" class="navbar-brand">
+                <a href="https://discord.gg/eEsveqpyyP" class="navbar-brand hover">
                     <i class="bi bi-discord text-white h4"></i>
                 </a>
-                <a href="mailto:adrian@gmail.com" class="navbar-brand">
+                <a href="mailto:adrian@gmail.com" class="navbar-brand hover">
                     <i class="bi bi-envelope text-white h4"></i>
                 </a>
                 <?php 
                     if (isset($_SESSION["login"]) && $_SESSION["login"] == true){
-                        print '<a href="userSettings.php" class="navbar-brand d-flex justify-contet-center align-items-center">';
+                        print '<a href="userSettings.php" class="hover navbar-brand d-flex justify-contet-center align-items-center">';
                         print '<i class="bi bi-person-circle text-white h4 m-0"></i>';
                         print '<p class="text-white ms-2 m-0">' . $_SESSION["Display_Name"] . '</p>';
                         print'</a>';
@@ -26,15 +26,15 @@
                 <div class="collapse navbar-collapse justify-content-end align-center" id="main-nav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <?php echo isset($_SESSION['login']) ? '<a href="logout.php" class="nav-link text-white">Log out</a>' : '<a href="" class="nav-link bg-warning rounded-2 px-4 mx-2" data-bs-toggle="modal" data-bs-target="#req-modal2">Login</a>'; ?>
+                            <?php echo isset($_SESSION['login']) ? '<a href="logout.php" class="hover nav-link text-white px-4 mx-2 my-1">Log out</a>' : '<a href="" class="hover nav-link bg-warning rounded-2 px-4 mx-2" data-bs-toggle="modal" data-bs-target="#req-modal2">Login</a>'; ?>
                         </li>
                         <li class="nav-item">
                            
-                            <?php echo isset($_SESSION['login']) ? '<a href="summons.php" class="nav-link bg-warning rounded-2 px-4 mx-2">Summons </a>' : '<a href="summons.php" class="nav-link text-white mx-2">Summons</a>'; ?>
+                            <?php echo isset($_SESSION['login']) ? '<a href="summons.php" class="hover nav-link bg-warning rounded-2 px-4 mx-2 my-1">Mystery Box </a>' : '<a href="summons.php" class="hover nav-link text-white mx-2">Mystery Box</a>'; ?>
 
                         </li>
                         <li class="nav-item">
-                            <?php echo isset($_SESSION['login']) ? '<a href="items.php" class="nav-link bg-warning rounded-2 px-4 mx-2">Items</a>' : '<a href="items.php" class="nav-link text-white mx-2">Items</a>'; ?>
+                            <?php echo isset($_SESSION['login']) ? '<a href="items.php" class="hover nav-link bg-warning rounded-2 px-4 mx-2 my-1">Items</a>' : '<a href="items.php" class="hover nav-link text-white mx-2">Items</a>'; ?>
 
                         </li>
                     </ul>

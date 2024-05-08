@@ -2,7 +2,7 @@
             <div class="modal-dialog"><!-- Alle the content all the goes here, "The white bubble"-->
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="modal-title"> Mi BOMBA CLAT  </h5>
+                        <h5 class="modal-title" id="modal-title"> OH NO!!!  </h5>
                     </div>
                     <div class="modal-body">
                         <p id="vital-text"></p>

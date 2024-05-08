@@ -69,11 +69,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $stmt -> execute();
                 $user_id = $pdo -> lastinsertid(); // User id
 
-                $query = "INSERT INTO biscuit_progress (id_foregin_user) values (:user_id);";
-                $stmt = $pdo -> prepare($query);
-                $stmt -> bindParam(':user_id', $user_id);
-                $stmt -> execute();
-
             } 
                 // Closing the connection
                 $pdo = null;

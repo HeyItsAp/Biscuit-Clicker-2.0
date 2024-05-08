@@ -1,6 +1,7 @@
 <?php
 session_start();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,6 +36,13 @@ session_start();
             scale: 0.9;
             transition: 0.09s;
         }
+        .hover {
+            scale: 1;
+            transition: 0.5s ease-in-out;
+        }
+            .hover:hover {
+                scale:1.04;
+            }
     
     body {
         background-color:#D2B48C;
@@ -47,46 +55,50 @@ session_start();
 </head>
 <body>
         <?php
-            // DELETE?
-            // if (isset($_SESSION["login"]) && $_SESSION["login"] == true){
-            //     echo '<h2 id="login" style="margin: 10px;"> Hello, ' . $_SESSION["Display_Name"] . '</h2>';
-            // }
             require_once "php_requires/nav.php";
             require_once "php_requires/vital_info.php";
         ?>
 
         <!-- Main game -->
         <section class="container-lg mt-5">
-            <div class="container-fluid">
+            <div class="container-lg">
                 <div class="text-center d-flex flex-column">
                     <h5 class="pt-2"> Biscuits: </h5>
-                    <h4 id="biscuit-count"></h4>
+                    <h4 id="biscuit-count" class="fs-2"></h4>
                 </div>
-                <div class="text-center">
-                    <p id="non-vital-information"></p>
+                <div class="text-center my-3">
+                    <p id="non-vital-information" class="my-3">
+                    </p>
+                    <!-- Prestige menu -->
+                    <div id="prestige-menu" class="flex-column text-center justify-content-center align-items-center rounded py-3" style="background-color:#FFFFFF; display: none;">
+                        <h4 class="fw-bold"> Prestige </h4>
+                        <p><span class="fs-4 fw-bold" style="color:#FF69B4;">Warning: </span> Prestiging resets your biscuit progress, and forces a save</p>
+                    </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row gap-3" >
                 <!-- Cookie -->
-                <div class="col-12 col-md-8 d-flex align-items-center flex-column p-2">
+                <div class="col-12 col-md-8 d-flex align-items-center flex-column rounded py-3" style="background-color:#FFFFFF;">
                     <!-- Stats -->
-                    <div class="container-fluid text-center">
+                    <div class="container-fluid text-center border border-secondary mb-4 py-2">
                         <h3> Stats</h3>
                         <div>
-                            <p id="biscuit-auto-h2"> <!-- Biscuits per second: <span id="biscuit-auto">0</span> --></p>
+                            <p id="biscuit-auto-h2" class="mb-1"> <!-- Biscuits per second: <span id="biscuit-auto">0</span> --></p>
+                            <p id="prestige-show-stats" class="mb-1"> <!-- Biscuits per second: <span id="biscuit-auto">0</span> --></p>
+
                         </div>
                     </div>
                     <div onclick="incrementcount(event)" id="clicker-biscuit"></div>
                 </div>
                 <!-- Store -->
-                <div class="col-12 col-md-4 p-3 rounded-3" style="background-color:#FFFFFF;">
+                <div class="col-12 col-md-3 p-3 rounded-3" style="background-color:#FFFFFF;">
                     <div class="text-start container-fluid">
                         <h2> Biscuit Store</h2>
                     </div>
                     <div class="align-items-center justify-content-center list-group" id="The-upgrades-menu">
                         <?php
                             if (isset($_SESSION["login"]) && $_SESSION["login"] == true){
-                                echo '<button id="save" style="" onclick="save_progress()"> Save Progress</button>';
+                                echo '<button id="save" class="w-100 btn hover" style="background-color:#00ff00;" onclick="save_progress(false)"> Save Progress</button>';
                             }
                         ?>
                     </div>
