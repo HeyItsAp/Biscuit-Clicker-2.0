@@ -3,6 +3,9 @@
                 <a href="index.php" class="navbar-brand hover">
                     <img src="medium/Bilder/Mainlogo.png" alt="Biscuit Clicker Logo" width="60" heigh="48">
                 </a>
+                <a href="FAQ.php" class="navbar-brand hover">
+                    <i class="bi bi-question-square-fill text-white h4"></i>
+                </a>
                 <a href="https://discord.gg/eEsveqpyyP" class="navbar-brand hover">
                     <i class="bi bi-discord text-white h4"></i>
                 </a>

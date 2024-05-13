@@ -42,50 +42,103 @@
     <!-- FAQ -->
     <section class="container-lg mt-5">
         <div class="row gap-5 d-flex justify-content-center">
-            <article class="col-12 col-lg-10">
+
+            <article class="col-12 col-lg-10 my-1">
                 <div class="text-start">
-                    <h4 class="fs-2">Biscuit Gameplay </h4>
+                    <h2 class="fs-1">Biscuit Gameplay </h4>
                     <p>If you have questions about the gameplay, terms or mechanics you are unsure about, hope these questions help: </p>
                 </div>
                 <div class="accordion accordion-flush" id="accordionFlushExample">
                     <div class="accordion-item">
                         <h2 class="accordion-header">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                            Question #1
+                            What is the main goal of the game?
                         </button>
                         </h2>
                         <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
-                                <p> Yuh 1 </p>
+                                <p> The main goal of the game is reach and upgrade the final upgrade: "Mr. Biscuiut Worldwide". But it is appreactied if u try to get every item too. </p>
                             </div>
                         </div>
                     </div>
                     <div class="accordion-item">
                         <h2 class="accordion-header">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                            Question #2
+                            What is BP or Biscuit Prestige?
                         </button>
                         </h2>
                         <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
-                                <p> Yuh 2 </p>
+                                <p> Biscuit prestige or BP, is earned through prestiging. Prestiging is avaliable after a set amount of biscuits has been passed. A noticable menu will show up. When prestiging, your biscuit will be turned into 0 and upgrades will be reset. In exchange, you'll get a set amount of biscuit prestige that doesn't disappear. You can use them to buy a mystery box </p>
                             </div>
                         </div>
                     </div>
                     <div class="accordion-item">
                         <h2 class="accordion-header">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                            Question #3
+                            What are the chances in buying a Mystery box.
                         </button>
                         </h2>
                         <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
-                                <p>Yuh 3</p>
+                                <p>Currently the rates are: Trash: 60%, Rare: 35%, Epic: 4%, Legendary: 1% </p>
                             </div>
                         </div>
                     </div>
                 </div>
             </article>
+            <article class="col-12 col-lg-10 my-1">
+                <div class="text-start">
+                    <h2 class="fs-1"> Account manangement </h4>
+                    <p> If you have problems with handling your account and stuff this section is dedicated to that. </p>
+                </div>
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Where do i create a new account?
+                        </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <p> In the main game, click on the yellow login button. On the bottom left of the click on the link. You'll be sendt to the resgistration page. </p>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            How to disable or enable auto save?
+                        </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <p> You can disable and enable in the account manangement page. Click on your profile figure beside your displayname, when logged in. Yes, only loggedin users can auto-save.</p>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            How to logg out?
+                        </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <p>After logging inn, the logg in button turns into logg out button, but without the yellow button. Click on it to logg out.</p>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+            </article>
+            <footer class="mb-5 col-12 col-lg-10">
+                <h4 class="fs-3">Advanced guides</h4>
+                <p> These guide into more detail on how to play and opearate the game: </p>
+                <ul class="list-group list-group-horizontal">
+                    <li class="list-group-item"><a href="Dokumenter/tutorial.pdf" download="tutorial.pdf" class="btn btn-link"> Tutorial</a></li>
+                    <li class="list-group-item"><a href="Dokumenter/#" download="#" class="btn btn-link"> Yap Yap </a></li>
+                </ul>
+            </footer>
         </div>
     </section>
 
