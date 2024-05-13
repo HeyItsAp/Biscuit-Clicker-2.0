@@ -26,17 +26,20 @@
                 <div class="collapse navbar-collapse justify-content-end align-center" id="main-nav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <?php echo isset($_SESSION['login']) ? '<a href="logout.php" class="hover nav-link text-white px-4 mx-2 my-1">Log out</a>' : '<a href="" class="hover nav-link bg-warning rounded-2 px-4 mx-2" data-bs-toggle="modal" data-bs-target="#req-modal2">Login</a>'; ?>
+                            <?php echo isset($_SESSION['login']) ? '<a href="logout.php" class="hover nav-link text-white px-4 mx-2 my-1">Log out</a>' : '<a href="" style="background-color:#FFD700;" class="hover nav-link rounded-2 px-4 mx-2" data-bs-toggle="modal" data-bs-target="#req-modal2">Login</a>'; ?>
                         </li>
                         <li class="nav-item">
-                           
-                            <?php echo isset($_SESSION['login']) ? '<a href="summons.php" class="hover nav-link bg-warning rounded-2 px-4 mx-2 my-1">Mystery Box </a>' : '<a href="summons.php" class="hover nav-link text-white mx-2">Mystery Box</a>'; ?>
 
+                            <?php echo isset($_SESSION['login']) ? '<a href="summons.php" style="background-color:#FFD700;" class="hover nav-link rounded-2 px-4 mx-2 my-1">Mystery Box </a>' : '<a href="summons.php" class="hover nav-link text-white mx-2">Mystery Box</a>'; ?>
                         </li>
                         <li class="nav-item">
-                            <?php echo isset($_SESSION['login']) ? '<a href="items.php" class="hover nav-link bg-warning rounded-2 px-4 mx-2 my-1">Items</a>' : '<a href="items.php" class="hover nav-link text-white mx-2">Items</a>'; ?>
-
+                            <?php echo isset($_SESSION['login']) ? '<a href="items.php" style="background-color:#FFD700;" class="hover nav-link rounded-2 px-4 mx-2 my-1">Items</a>' : '<a href="items.php" class="hover nav-link text-white mx-2">Items</a>'; ?>
                         </li>
+                        <?php if (isset($_SESSION['clearance']) && $_SESSION['clearance'] == 1){ ?>
+                            <li class="nav-item">
+                                <a href="makeAdmin.php" class="hover nav-link px-4 mx-2 my-1 rounded" style="background-color:#00FF00;"> Admin page </a>
+                            </li>
+                        <?php } ?>
                     </ul>
                 </div>
             </div>

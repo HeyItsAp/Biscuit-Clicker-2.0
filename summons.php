@@ -21,20 +21,27 @@ if (!isset($_SESSION["login"]) && $_SESSION["login"] != true){
     
     <link rel="icon" type="image/x-icon" href="Medium/Bilder/Mainicon.ico">
     <style>
-        #video:-webkit-full-screen[controls],
-        #video:-moz-full-screen[controls],
-        #video:-ms-fullscreen[controls],
-        #video:fullscreen[controls] {
-        opacity: 0; /* Controls are hidden when in fullscreen */
+    .hover {
+        scale: 1;
+        transition: 0.5s ease-in-out;
+    }
+        .hover:hover {
+            scale:1.04;
         }
-        body {
+    body {
         background-color:#D2B48C;
         
         font-family: mr-eaves-xl-modern, sans-serif;
         font-style: normal;
         font-weight: 400;
     }
-    
+        
+        #video:-webkit-full-screen[controls],
+        #video:-moz-full-screen[controls],
+        #video:-ms-fullscreen[controls],
+        #video:fullscreen[controls] {
+        opacity: 0; /* Controls are hidden when in fullscreen */
+        }
     .animation {
         animation: yourmom 10s;
     }

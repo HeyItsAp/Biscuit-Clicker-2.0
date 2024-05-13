@@ -24,6 +24,13 @@ if (!isset($_SESSION["login"]) && $_SESSION["login"] != true){
         <meta name="Login" content="0">
     <?php } ?>
     <style>
+        .hover {
+            scale: 1;
+            transition: 0.5s ease-in-out;
+        }
+            .hover:hover {
+                scale:1.04;
+            }
         body {
             background-color:#D2B48C;
             

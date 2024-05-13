@@ -212,7 +212,7 @@ INSERT INTO items (item_navn, item_increase, item_rarity, item_beskrivelse) VALU
 INSERT INTO user (DisplayName, username, pwd, clearance) VALUES ('BiscuitAdmin', 'admin', 'admin123', 1);
 INSERT INTO user (DisplayName, username, pwd) VALUES ('Clicker', 'bruker', 'bruker123');
 INSERT INTO user (DisplayName, username, pwd) VALUES ('Wisher', 'wish', 'wish123');¨
-UPDATE biscuit_progress SET 'prestige_count' = '99999999' WHERE 'id_progress' = '3';
+UPDATE biscuit_progress SET prestige_count = 99999999 WHERE id_progress = 3;
 
 
 

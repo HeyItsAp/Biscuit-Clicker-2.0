@@ -36,13 +36,15 @@ session_start();
             scale: 0.9;
             transition: 0.09s;
         }
-        .hover {
-            scale: 1;
-            transition: 0.5s ease-in-out;
+
+        
+    .hover {
+        scale: 1;
+        transition: 0.5s ease-in-out;
+    }
+        .hover:hover {
+            scale:1.04;
         }
-            .hover:hover {
-                scale:1.04;
-            }
     
     body {
         background-color:#D2B48C;
@@ -64,7 +66,7 @@ session_start();
             <div class="container-lg">
                 <div class="text-center d-flex flex-column">
                     <h5 class="pt-2"> Biscuits: </h5>
-                    <h4 id="biscuit-count" class="fs-2"></h4>
+                    <h4 id="biscuit-count" class="fs-2 rounded mx-auto w-25 py-2" style="background-color: #FFFFFF;"></h4>
                 </div>
                 <div class="text-center my-3">
                     <p id="non-vital-information" class="my-3">
@@ -81,11 +83,10 @@ session_start();
                 <div class="col-12 col-md-8 d-flex align-items-center flex-column rounded py-3" style="background-color:#FFFFFF;">
                     <!-- Stats -->
                     <div class="container-fluid text-center border border-secondary mb-4 py-2">
-                        <h3> Stats</h3>
+                        <h3>Stats</h3>
                         <div>
                             <p id="biscuit-auto-h2" class="mb-1"> <!-- Biscuits per second: <span id="biscuit-auto">0</span> --></p>
                             <p id="prestige-show-stats" class="mb-1"> <!-- Biscuits per second: <span id="biscuit-auto">0</span> --></p>
-
                         </div>
                     </div>
                     <div onclick="incrementcount(event)" id="clicker-biscuit"></div>

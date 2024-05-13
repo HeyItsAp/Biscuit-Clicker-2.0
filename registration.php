@@ -16,6 +16,13 @@
         <meta name="Login" content="0">
     <?php } ?>
     <style>
+        .hover {
+            scale: 1;
+            transition: 0.5s ease-in-out;
+        }
+            .hover:hover {
+                scale:1.04;
+            }
         body {
             background-color:#D2B48C;
             
@@ -44,15 +51,14 @@
                     transform: translate(0px, 0px);
                 }
             }
-
-            #mjaau{
-                background-color: #D2B48C;
-                width: 249px;
-                height: 250px;
-                position: absolute;
-                right: 0px;
-                top: 380px;
-            } 
+        #mjaau {
+            background-color: #D2B48C;
+            width: 249px;
+            height: 250px;
+            position: absolute;
+            right: 0px;
+            top: 380px;
+        } 
     </style>
 </head>
 

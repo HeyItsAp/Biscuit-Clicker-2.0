@@ -24,7 +24,14 @@ if (!isset($_SESSION["login"]) && $_SESSION["login"] != true){
         <meta name="Login" content="0">
     <?php } ?>
     <style>
-        body {
+    .hover {
+        scale: 1;
+        transition: 0.5s ease-in-out;
+    }
+        .hover:hover {
+            scale:1.04;
+        }    
+    body {
         background-color:#D2B48C;
         
         font-family: mr-eaves-xl-modern, sans-serif;
@@ -35,22 +42,6 @@ if (!isset($_SESSION["login"]) && $_SESSION["login"] != true){
 </head>
 
 <body>
-        <!-- <nav>
-        <div id="mySidenav" class="sidenav">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="./settings.html"> Settings </a>
-            <a href="./items.html"> Items </a>
-            <a href="./summons.html"> Summons</a>
-            <a href="./login.html"> Login / Logout</a>
-        </div>
-        <a href="./index.html" class="Maingamelink"> &lt; Main Game</a>
-        <img src="./Medium/Bilder/Mainlogo.png" class="Cookie-menu" onclick="openNav()">
-        <div class="Ham-icon" id="Ham-icon-id" onclick="SelectHamIcon(this), openNav()">
-            <div class="Ham-icon-1"></div>
-            <div class="Ham-icon-2"></div>
-            <div class="Ham-icon-3"></div>
-        </div>
-    </nav> -->
     <?php 
         require_once "php_requires/nav.php";
     ?>
