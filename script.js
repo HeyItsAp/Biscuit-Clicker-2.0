@@ -285,12 +285,12 @@ function CreateUpgrade(element) {
   
 
 // Items Data  
-var items = []
+var items = [] // Data is gotten through ajax
 if (page == "items.php") {
   function CreateItem(element) {
     let Item_div= document.createElement("div")
     Item_div.setAttribute("id", "Item-" + element.navn)
-    Item_div.setAttribute("class", "col-8 col-lg-4 col-xl-3")
+    Item_div.setAttribute("class", "col-12 col-lg-4 col-xl-3")
     document.getElementById("items").appendChild(Item_div)
 
       let Item_card = document.createElement("div")
@@ -370,7 +370,7 @@ function Updateincrementvalue(){
     }
   } 
   if (page == "items.php"){
-    document.getElementById("increment_value").innerHTML = "Currently, you make " + incrementvalue + " pr click";
+    document.getElementById("increment_value").innerHTML = "Currently, you make <span class='fw-bold fs-4 my-2'>" + incrementvalue + " </span> pr click";
   }
 }
 // 
@@ -404,7 +404,7 @@ function pullItem(){
   if (biscuitprestige >= Summonreq){
   biscuitprestige = biscuitprestige - Summonreq;
 
-  document.getElementById("Stats").innerHTML = "You have: " + biscuitprestige + " BP <br> For one summon: " + Summonreq + " BP <br>";
+  document.getElementById("Stats").innerHTML = "You have: <span class='fw-bold fs-1'>" + biscuitprestige + "</span> BP <br> For one summon: " + Summonreq + " BP <br>";
 
   // Reset
     document.getElementById("result-text").style.display = 'none';
@@ -585,7 +585,7 @@ if (isloggedinn == 1) {
         console.log(items)
       // Summons
         if (page == "summons.php"){
-          document.getElementById("Stats").innerHTML = "You have: " + biscuitprestige + " BP <br> For one summon: " + Summonreq + " BP <br>";
+          document.getElementById("Stats").innerHTML = "You have: <span class='fw-bold fs-3'>" + biscuitprestige + "</span> BP <br><span class='fs-2'> For one summon: " + Summonreq + " BP </span><br>";
         }
     },
     error: (error) => {

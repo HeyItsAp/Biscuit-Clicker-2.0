@@ -78,7 +78,7 @@ session_start();
                     </div>
                 </div>
             </div>
-            <div class="row gap-3" >
+            <div class="row gap-3 my-5 d-flex  justify-content-center" >
                 <!-- Cookie -->
                 <div class="col-12 col-md-8 d-flex align-items-center flex-column rounded py-3" style="background-color:#FFFFFF;">
                     <!-- Stats -->
@@ -92,11 +92,11 @@ session_start();
                     <div onclick="incrementcount(event)" id="clicker-biscuit"></div>
                 </div>
                 <!-- Store -->
-                <div class="col-12 col-md-3 p-3 rounded-3" style="background-color:#FFFFFF;">
+                <div class="col-12 col-md-3 p-3 rounded-3 overflow-y-auto" style="height:500px;background-color:#FFFFFF;">
                     <div class="text-start container-fluid">
                         <h2> Biscuit Store</h2>
                     </div>
-                    <div class="align-items-center justify-content-center list-group" id="The-upgrades-menu">
+                    <div class="align-items-center justify-content-center list-group " id="The-upgrades-menu">
                         <?php
                             if (isset($_SESSION["login"]) && $_SESSION["login"] == true){
                                 echo '<button id="save" class="w-100 btn hover" style="background-color:#00ff00;" onclick="save_progress(false)"> Save Progress</button>';

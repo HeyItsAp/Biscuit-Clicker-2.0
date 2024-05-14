@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION["login"]) && $_SESSION["login"] != true){
-    // header( "refresh:0; url=login.php" );
+    header( "refresh:0; url=login.php" );
     echo '<script> alert("You need to be logged in to acsess this");</script>';
 }
 ?>
@@ -44,8 +44,8 @@ if (!isset($_SESSION["login"]) && $_SESSION["login"] != true){
     <?php 
         require_once "php_requires/nav.php";
     ?>
-    <section class="container-lg mt-5">
-        <div class="text-center">
+    <section class="container-lg my-5">
+        <div class="text-center rounded p-4 bg-white">
             <h1> Your items </h1>
             <p> Your items are permanent upgrades and increase you biscuit count per click. Get items by buying  A Mystery Box.</p>
             <p id="increment_value"></p>

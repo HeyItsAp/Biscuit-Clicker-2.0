@@ -9,7 +9,7 @@
                 <a href="https://discord.gg/eEsveqpyyP" class="navbar-brand hover">
                     <i class="bi bi-discord text-white h4"></i>
                 </a>
-                <a href="mailto:adrian@gmail.com" class="navbar-brand hover">
+                <a href="mailto:adrian@gmail.com" class="navbar-brand hover d-none d-md-block">
                     <i class="bi bi-envelope text-white h4"></i>
                 </a>
                 <?php 

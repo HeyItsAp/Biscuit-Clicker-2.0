@@ -135,8 +135,9 @@
                 <h4 class="fs-3">Advanced guides</h4>
                 <p> These guide into more detail on how to play and opearate the game: </p>
                 <ul class="list-group list-group-horizontal">
-                    <li class="list-group-item"><a href="Dokumenter/tutorial.pdf" download="tutorial.pdf" class="btn btn-link"> Tutorial</a></li>
-                    <li class="list-group-item"><a href="Dokumenter/#" download="#" class="btn btn-link"> Yap Yap </a></li>
+                    <li class="list-group-item"><a href="Dokumenter/Tutorial.pdf" download class="btn btn-link"> Tutorial</a></li>
+                    <li class="list-group-item"><a href="Dokumenter/Developer.pdf" download class="btn btn-link"> Developer Notes </a></li>
+                    <li class="list-group-item"><a href="Dokumenter/Intro.mp4" download class="btn btn-link"> Intro video </a></li>
                 </ul>
             </footer>
         </div>
