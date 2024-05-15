@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
     $DisplayName = validate($_POST['DisplayName']);
     $username = validate($_POST['username']);
-    $pwd = validate($_POST['pwd']);
+    $pwd = hash('sha256',validate($_POST['pwd']));
     echo $DisplayName . '<br>';
     echo $username . '<br>';
     echo $pwd . '<br>';

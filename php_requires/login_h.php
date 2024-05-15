@@ -9,9 +9,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         return $data;
     }
     $username = validate($_POST['username']);
-    $pwd = validate($_POST['password']);
+    $pwd = hash('sha256',validate($_POST['password']));
     // echo $username . '<br>';
-    // echo $pwd . '<br>';
+    echo $pwd . '<br>';
     if(empty($username) || empty($pwd)) {
         header( "refresh:0; url=../index.php" );
         echo '<script> alert("Something is missing");</script>';
@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt -> bindParam(':pwd', $pwd);        
         $stmt -> execute();
         $result = $stmt ->fetch(PDO::FETCH_ASSOC);
-        if ($result == false) {
+        if (!$result) {
             // Cant find Login
             $pdo = null;
             $stmt = null;           

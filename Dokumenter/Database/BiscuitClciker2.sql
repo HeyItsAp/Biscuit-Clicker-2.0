@@ -209,9 +209,9 @@ INSERT INTO items (item_navn, item_increase, item_rarity, item_beskrivelse) VALU
       INSERT INTO items (item_navn, item_increase, item_rarity, item_beskrivelse) VALUES ('Life.', 2000, 'Legendary', 'You finally go outside.');
 
 
-INSERT INTO user (DisplayName, username, pwd, clearance) VALUES ('BiscuitAdmin', 'admin', 'admin123', 1);
-INSERT INTO user (DisplayName, username, pwd) VALUES ('Clicker', 'bruker', 'bruker123');
-INSERT INTO user (DisplayName, username, pwd) VALUES ('Wisher', 'wish', 'wish123');
+INSERT INTO user (DisplayName, username, pwd, clearance) VALUES ('BiscuitAdmin', 'admin', '3b612c75a7b5048a435fb6ec81e52ff92d6d795a8b5a9c17070f6a63c97a53b2', 1); -- password: admin123
+INSERT INTO user (DisplayName, username, pwd) VALUES ('Clicker', 'bruker', '26a1583736a554df029cb64ac94e730b8e0723dac0e25460a2d5c9579344acf6'); -- password: bruker123
+INSERT INTO user (DisplayName, username, pwd) VALUES ('Wisher', 'wish', '5c649782e4a1cfb84c4abcbc9525725f68411f94f3d12ec93896be247264e870'); -- password: wisher123
 UPDATE biscuit_progress SET prestige_count = 99999999 WHERE id_progress = 3;
 
 
