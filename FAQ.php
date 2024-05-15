@@ -137,7 +137,7 @@
                 <ul class="list-group list-group-horizontal">
                     <li class="list-group-item"><a href="Dokumenter/Tutorial.pdf" download class="btn btn-link"> Tutorial</a></li>
                     <li class="list-group-item"><a href="Dokumenter/Developer.pdf" download class="btn btn-link"> Developer Notes </a></li>
-                    <li class="list-group-item"><a href="Dokumenter/Intro.mp4" download class="btn btn-link"> Intro video </a></li>
+                    <li class="list-group-item"><a href="Dokumenter/Navigation.mp4" download class="btn btn-link"> Intro video </a></li>
                 </ul>
             </footer>
         </div>

@@ -523,9 +523,13 @@ if (isloggedinn == 1) {
         switch (auto_saving) {
           case 1:
             console.log("Auto saving is enabled");
-            enable_autosave();
+            if (page == "index.php" || page == ""){
+              enable_autosave();
+            }
+            break
           default:
             console.log("Auto saving is not enabled");
+            break
         }
         
 

@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     try {
         require_once "dbh-inc.php"; 
-        $query = "SELECT id_user, DisplayName, username, pwd, clearance FROM user WHERE username = :username AND pwd = :pwd;";
+        $query = "SELECT id_user, DisplayName, username, pwd, clearance, auto_saving FROM user WHERE username = :username AND pwd = :pwd;";
         $stmt = $pdo -> prepare($query);
         $stmt -> bindParam(':username', $username);
         $stmt -> bindParam(':pwd', $pwd);        

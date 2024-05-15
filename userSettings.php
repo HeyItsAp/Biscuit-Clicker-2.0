@@ -45,7 +45,7 @@ if (!isset($_SESSION["login"]) && $_SESSION["login"] != true){
     <?php 
         require_once "php_requires/nav.php";
     ?>
-    <section class="container-lg mt-5 p-3 rounded-3" style="background-color: #FFFFFF;">
+    <section class="container-lg my-5 p-3 rounded-3" style="background-color: #FFFFFF;">
         <form method="post" action="php_requires/settings_h.php">
             <h2> Update your account</h2>
             <p class="">All input must be filled, for security reasons.</p>
@@ -88,8 +88,6 @@ if (!isset($_SESSION["login"]) && $_SESSION["login"] != true){
     </section>
 
 
-    <script src="./script.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     
     <!-- Bootstrap 5.3 komponent:-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
@@ -97,6 +95,8 @@ if (!isset($_SESSION["login"]) && $_SESSION["login"] != true){
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="./script.js"></script>
 </body>
 
 </html>

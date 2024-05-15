@@ -43,8 +43,8 @@ CREATE TABLE IF NOT EXISTS `biscuitclicker2`.`biscuit_progress` (
   CONSTRAINT `fk_biscuit_progress_user1`
     FOREIGN KEY (`id_foregin_user`)
     REFERENCES `biscuitclicker2`.`user` (`id_user`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB
 AUTO_INCREMENT = 5;
 
@@ -211,7 +211,7 @@ INSERT INTO items (item_navn, item_increase, item_rarity, item_beskrivelse) VALU
 
 INSERT INTO user (DisplayName, username, pwd, clearance) VALUES ('BiscuitAdmin', 'admin', 'admin123', 1);
 INSERT INTO user (DisplayName, username, pwd) VALUES ('Clicker', 'bruker', 'bruker123');
-INSERT INTO user (DisplayName, username, pwd) VALUES ('Wisher', 'wish', 'wish123');¨
+INSERT INTO user (DisplayName, username, pwd) VALUES ('Wisher', 'wish', 'wish123');
 UPDATE biscuit_progress SET prestige_count = 99999999 WHERE id_progress = 3;
 
 

@@ -22,7 +22,7 @@ session_start();
     /* For +1 effects */
         #clicker-biscuit {
             transition: 0.09s; 
-            background-image: url("./Medium/Bilder/ClickerCookie.png");
+            background-image: url("./Medium/Bilder/ClickerCookie2.png");
             background-size: 300px;
             position: relative;
             width: 300px;
@@ -103,10 +103,6 @@ session_start();
                             }
                         ?>
                     </div>
-                    <!-- EEVENT ===!=!=!==! -->
-                    <!-- <div class="container-fluid">
-                        <h2> Events??!??!?! </h2>
-                    </div> -->
                 </div>
             </div>
         </section>

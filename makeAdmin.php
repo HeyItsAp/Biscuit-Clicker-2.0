@@ -111,7 +111,7 @@ if ($_SESSION['clearance'] != 1){
                                 <td>
                                     <?php print '<input type="hidden" name="id_user" value="'. $id_user. '">'; ?>
                                     <button type="submit" name="delete_bruker" class="btn btn-danger mx-1"> Delete </button>
-                                    <button type="submit" name="oppdater_clearance" class="btn btn-success mx-1"> Oppdaterer clearance </button>
+                                    <button type="submit" name="oppdater_clearance" class="btn btn-success mx-1"> Update clearance </button>
                                 </td>
                                 </form>
                             </tr>
