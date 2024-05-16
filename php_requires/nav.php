@@ -1,7 +1,7 @@
         <nav class="navbar navbar-expand-md navbar-light" style="background-color:#8B4513;">
             <div class="container-xxl">
                 <a href="index.php" class="navbar-brand hover">
-                    <img src="medium/Bilder/Mainlogo.png" alt="Biscuit Clicker Logo" width="60" heigh="48">
+                    <img src="Medium/Bilder/Mainlogo.png" alt="Biscuit Clicker Logo" width="60" heigh="48">
                 </a>
                 <a href="FAQ.php" class="navbar-brand hover">
                     <i class="bi bi-question-square-fill text-white h4"></i>

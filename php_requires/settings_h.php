@@ -34,6 +34,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         header( "refresh:0; url=../userSettings.php" );
         echo '<script> alert("Passwords dont match");</script>';
         die("");
+    } else {
+        $new_confpwd = hash('sha256', $new_confpwd);
     }
 
     try {
