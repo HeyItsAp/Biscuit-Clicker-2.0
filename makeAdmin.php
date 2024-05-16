@@ -7,7 +7,7 @@ if (!isset($_SESSION["login"])){
     echo '<script> alert("You need to be logged in to acsess this");</script>';
 }
 if ($_SESSION['clearance'] != 1){
-    //header( "refresh:0; url=index.php" );
+    header( "refresh:0; url=index.php" );
     echo '<script> alert("You need to be logged in as admin to acsess this");</script>';
 }
 ?>

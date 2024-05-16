@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION["login"]) && $_SESSION["login"] != true){
-    header( "refresh:0; url=login.php" );
+    header( "refresh:0; url=index.php" );
     echo '<script> alert("You need to be logged in to acsess this");</script>';
 }
 ?>
