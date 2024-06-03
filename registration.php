@@ -53,11 +53,11 @@
             }
         #mjaau {
             background-color: #D2B48C;
-            width: 249px;
-            height: 250px;
+            width: 350px;
+            height: 207px;
             position: absolute;
-            right: 0px;
-            top: 380px;
+            right: -25px;
+            top: 500px;
         } 
     </style>
 </head>
@@ -66,20 +66,20 @@
     <?php 
         require_once "php_requires/nav.php";
     ?>
-    <section>
-        <header>
+    <section class="my-5">
+        <header class="container-lg d-flex justify-content-center align-items-center flex-column">
             <div class="container-lg">
                 <div class="text-center my-2 animation-1">
                     <h2 style="letter-spacing: 12px;"> Welcome to </h2>
                 </div>
             </div>
-            <div class="m-5 animation-2">
+            <div class="m-5 animation-2 container d-none d-md-block">
                 <!-- Stationary cooikie --><!-- <iframe src='https://my.spline.design/untitled-3678d236cbeaee7036a9de60a321974c/' frameborder='0' width='100%' height='450px'></iframe> -->
-                <!-- Rotating cookie --><iframe src='https://my.spline.design/untitled-3678d236cbeaee7036a9de60a321974c/' frameborder='0' width='100%' height='450px%'></iframe>
+                <!-- Rotating cookie --><iframe src='https://my.spline.design/untitled-3678d236cbeaee7036a9de60a321974c/' frameborder='0' width='100%' height='450px%' class="d-none d-md-block"></iframe>
             </div>
-            <div id="mjaau">
+            <h1 style="letter-spacing: 12px;" class="my-5 animation-1 d-none d-sm-block d-md-none"> Biscuit Clicker </h1>
 
-            </div>
+            <div id="mjaau" class="d-none d-md-block"></div>
         </header>
         <section class="container-lg mt-2 p-3 rounded-3" style="background-color:#FFFFFF;">
             <form method="post" action="php_requires/res_h.php">
@@ -107,7 +107,7 @@
             </form> 
         </section>
     </section>
-
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="./script.js"></script>
     <!-- Bootstrap 5.3 komponent:-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

@@ -95,11 +95,11 @@
                 <div class="accordion" id="accordionExample">
                     <div class="accordion-item">
                         <h2 class="accordion-header">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                             Where do i create a new account?
                         </button>
                         </h2>
-                        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                        <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
                             <p> In the main game, click on the yellow login button. On the bottom left of the click on the link. You'll be sendt to the resgistration page. </p>
                         </div>
@@ -120,7 +120,7 @@
                     <div class="accordion-item">
                         <h2 class="accordion-header">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            How to logg out?
+                            How to log out?
                         </button>
                         </h2>
                         <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
@@ -131,13 +131,17 @@
                     </div>
                     </div>
             </article>
+            <article class="my-1 col-12 col-lg-10">
+                <h4 class="fs-1"> How to navigate video </h4>
+                <video src="Dokumenter/Navigation.mp4" controls class="w-100">Unable to find video</video>
+            </article>
             <footer class="mb-5 col-12 col-lg-10">
                 <h4 class="fs-3">Advanced guides</h4>
                 <p> These guide into more detail on how to play and opearate the game: </p>
                 <ul class="list-group list-group-horizontal">
                     <li class="list-group-item"><a href="Dokumenter/Tutorial.pdf" download class="btn btn-link"> Tutorial</a></li>
                     <li class="list-group-item"><a href="Dokumenter/Developer.pdf" download class="btn btn-link"> Developer Notes </a></li>
-                    <li class="list-group-item"><a href="Dokumenter/Navigation.mp4" download class="btn btn-link"> Intro video </a></li>
+                    <li class="list-group-item"><a href="Dokumenter/Navigation.mp4" download class="btn btn-link"> Intro video (The one above) </a></li>
                 </ul>
             </footer>
         </div>

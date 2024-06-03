@@ -540,10 +540,10 @@ if (isloggedinn == 1) {
             id: array.id_upgrades,
             navn: array.upgrade_navn,
             headline: array.upgrade_headline,
-            unlocked: false,
             antal: array.upgrade_antall,
             value: array.upgrade_value,
-            cost: array.upgrade_cost,
+            cost: Math.round(array.upgrade_cost*Math.pow(1.5, array.upgrade_antall)),
+            unlocked: false,
             des: array.upgrade_des
           }
           Upgrades.push(upgrade_object);
@@ -559,7 +559,19 @@ if (isloggedinn == 1) {
             des: array.upgrade_des
           }
           orignalupgrade.push(Reset_upgrade_object);
+
+
         })
+        for (var element of Upgrades) {
+          if(element.antal > 0) {
+            element.unlocked = true;
+            let currentUpgrade = Upgrades.indexOf(element);
+            if (Upgrades[currentUpgrade+1] != undefined){
+              Upgrades[currentUpgrade+1]["unlocked"] = true;
+            }
+          }
+        }
+        
         if (page == "index.php" || page == ""){
           document.getElementById("prestige-show-stats").innerHTML = "Biscuit Prestige: " + biscuitprestige;
           Upgrades[0].unlocked = true;
