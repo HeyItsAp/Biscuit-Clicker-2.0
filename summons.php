@@ -89,7 +89,7 @@ if (!isset($_SESSION["login"]) && $_SESSION["login"] != true){
         <div id="Summons" class="text-center container rounded py-2" style="background-color:#FFFFFF;">
             <div>
                 <h1 class="fs-1">Mystery box</h1>
-                <p>Spend Biscuit Prestige, BP, to get a mystery box sendt to your bakeary. <br> The box might have something useful to aid your biscuit production.</p>
+                <p>Spend Biscuit Prestige, BP, to summon a mystery box sendt to your bakeary. <br> The box might have something useful to aid your biscuit production.</p>
             </div>      
             <p id="Stats"> <p>
             <button onclick="pullItem()" id="summon-button" class="btn btn-success animate__animated animate__pulse animate__infinite">Summon Item!</button>
