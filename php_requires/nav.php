@@ -55,30 +55,30 @@
                         <h5 class="modal-title" id="modal-title"> Login </h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
-                        <form method="POST" action="php_requires/login_h.php">
-                            <label for="username" class="form-label">Username</label>
-                            <div class="mb-4 input-group">
-                                <span class="input-group-text">
-                                    <i class="bi bi-chat-right-dots-fill"></i>
-                                </span>
-                                <input type="text" name="username" class="form-control" placeholder="username">
-                            </div>
-                            <label for="password" class="form-label"> Password </label>
-                            <div class="mb-4 input-group">
-                                <span class="input-group-text">
-                                    <i class="bi bi-asterisk"></i>
-                                </span>
-                                <input type="password" name="password" class="form-control" placeholder="password">
-                            </div>
-                            <div class="mb-4 input-group">
-                            </div>
-                    </div>
-                    <div class="modal-footer d-flex flex-row justify-content-between">
-                        <a href="registration.php" class="link">No user? Make one here </a>
-                        <input type="submit" name="submitLogin" class="btn btn-primary" value="Login">
-                        </form>
-                    </div>
+                    <form method="POST" action="php_requires/login_h.php">
+                        <div class="modal-body">
+                                <label for="username" class="form-label">Username</label>
+                                <div class="mb-4 input-group">
+                                    <span class="input-group-text">
+                                        <i class="bi bi-chat-right-dots-fill"></i>
+                                    </span>
+                                    <input type="text" name="username" class="form-control" placeholder="username" required>
+                                </div>
+                                <label for="password" class="form-label"> Password </label>
+                                <div class="mb-4 input-group">
+                                    <span class="input-group-text">
+                                        <i class="bi bi-asterisk"></i>
+                                    </span>
+                                    <input type="password" name="password" class="form-control" placeholder="password" required>
+                                </div>
+                                <div class="mb-4 input-group">
+                                </div>
+                        </div>
+                        <div class="modal-footer d-flex flex-row justify-content-between">
+                            <a href="registration.php" class="link">No user? Make one here </a>
+                            <input type="submit" name="submitLogin" class="btn btn-primary" value="Login">
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

@@ -52,24 +52,24 @@ if (!isset($_SESSION["login"]) && $_SESSION["login"] != true){
 
             <div class="mb-2">
                 <label for="new_display" class="form-label"> Display name </label>
-                <input class="form-control" type="text" name="new_display" placeholder='<?php echo $_SESSION['Display_Name']; ?>'>
+                <input class="form-control" type="text" name="new_display" placeholder='<?php echo $_SESSION['Display_Name']; ?>' required>
                 <p class="form-text">Display name is used to represent you in events and leaderboard</p>
                 <p class="form-text">No duplicate display names can be created </p>
 
             </div>
             <div class="mb-2">
                 <label for="new_username" class="form-label"> Username </label>
-                <input class="form-control" type="text" name="new_username" placeholder='<?php echo $_SESSION['username']; ?>'>
+                <input class="form-control" type="text" name="new_username" placeholder='<?php echo $_SESSION['username']; ?>' required>
                 <p class="form-text">No duplicate username can be created </p>
 
             </div>
             <div class="mb-2">
                 <label for="new_password" class="form-label"> Password </label>
-                <input class="form-control" type="password" name="new_password" placeholder='new password'>
+                <input class="form-control" type="password" name="new_password" placeholder='new password' required>
             </div>
             <div class="mb-2">
                 <label for="confirm_password" class="form-label"> Confirm Password </label>
-                <input class="form-control" type="password" name="confirm_password" placeholder='new password again'>
+                <input class="form-control" type="password" name="confirm_password" placeholder='new password again' required>
             </div>
             <div>
                 <label for="Switch" class="form-label"> Auto save </label>

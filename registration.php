@@ -86,19 +86,19 @@
                 <h2>Create your user</h2>
                 <div class="mb-3">
                     <label for="DisplayName" class="form-label"> Display name </label>
-                    <input class="form-control" type="text" name="DisplayName" placeholder='BiscuitMaster123'>
+                    <input class="form-control" type="text" name="DisplayName" placeholder='BiscuitMaster123' required>
                     <p class="form-text">Display name is used to represent you in events and leaderboard</p>
                     <p class="form-text">No duplicate display names can be created </p>
 
                 </div>
                 <div class="mb-3">
                     <label for="username" class="form-label"> Username </label>
-                    <input class="form-control" type="text" name="username" placeholder='cookiehater'>
+                    <input class="form-control" type="text" name="username" placeholder='cookiehater' required>
                     <p class="form-text">No duplicate display names can be created </p>
                 </div>
                 <div class="mb-3">
                     <label for="pwd" class="form-label"> Password </label>
-                    <input class="form-control" type="password" name="pwd" placeholder='ihatecookies'>
+                    <input class="form-control" type="password" name="pwd" placeholder='ihatecookies' required>
                 </div>
                 <div class="d-flex justify-content-between">
                     <input class="btn btn-primary btn-block" type="submit" name="submitSignUp" value="Create user">
