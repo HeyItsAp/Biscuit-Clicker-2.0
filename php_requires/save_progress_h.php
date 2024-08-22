@@ -1,9 +1,7 @@
 <?php
 session_start();
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Get data
-
     $upgrades = $_POST['upgrades'];
     $biscuit_progress = $_POST['biscuit_progress'];
     $user_id = $_SESSION['id'];

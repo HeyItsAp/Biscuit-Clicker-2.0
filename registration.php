@@ -77,7 +77,7 @@
                 <!-- Stationary cooikie --><!-- <iframe src='https://my.spline.design/untitled-3678d236cbeaee7036a9de60a321974c/' frameborder='0' width='100%' height='450px'></iframe> -->
                 <!-- Rotating cookie --><iframe src='https://my.spline.design/untitled-3678d236cbeaee7036a9de60a321974c/' frameborder='0' width='100%' height='450px%' class="d-none d-md-block"></iframe>
             </div>
-            <h1 style="letter-spacing: 12px;" class="my-5 animation-1 d-none d-sm-block d-md-none"> Biscuit Clicker </h1>
+            <h1 style="letter-spacing: 12px;" class="my-5 animation-1 d-block d-md-none"> Biscuit Clicker </h1>
 
             <div id="mjaau" class="d-none d-md-block"></div>
         </header>

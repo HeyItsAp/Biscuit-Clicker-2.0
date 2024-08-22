@@ -4,8 +4,6 @@
         $dbusername = "adminClicker";
         $dbpassword = "admin123";
     } else {
-        // $dbusername = "userClicker";
-        // $dbpassword = "user123";
         $dbusername = "userClicker";
         $dbpassword = "user123";
     }
