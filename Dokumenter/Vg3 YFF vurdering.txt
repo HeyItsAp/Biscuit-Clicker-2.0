@@ -1,8 +1,12 @@
-Pga nye skole-pcer og flyting av klasserom har vi begrenset tilgang til ekstra teknologi nødvendig til en standard framvisning av Årsoppgave.
+5Pga nye skole-pcer og flyting av klasserom har vi begrenset tilgang til ekstra teknologi nødvendig til en standard framvisning av Årsoppgave.
 
 Nye tilstander har blitt tatt når det gjelder framvisning:
 1. På Domene jeg kjøpte til Eksamen (adrianpaullimpiaod.com):
 	Letteste. Men vanskelig å gjøre endringer på.
 2. Raspbarry Pi.
 	Tar tid, men let å endre.
-	Config: Brukernavn og Passord: Adrian3IMI
+	Config: Brukernavn, Hostname og passord: Adrian3IMI
+
+Endringer:
+	- Aktive brukere som har blitt slettet forces logoff ved en ny side 
+	- "BiscuitClciker2.sql" endringer

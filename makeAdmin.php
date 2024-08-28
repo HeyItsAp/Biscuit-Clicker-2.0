@@ -10,6 +10,26 @@ if ($_SESSION['clearance'] != 1){
     header( "refresh:0; url=index.php" );
     echo '<script> alert("You need to be logged in as admin to acsess this");</script>';
 }
+if (isset($_SESSION["login"]) && $_SESSION["login"] == true){
+    try {
+        require_once "dbh-inc.php"; 
+        $query = "SELECT id_user, DisplayName, username, pwd, clearance, auto_saving FROM user WHERE id_user = :id_user;";
+        $stmt = $pdo -> prepare($query);
+        $stmt -> bindParam(':id_user', $_SESSION['id']);        
+        $stmt -> execute();
+        $result = $stmt ->fetch(PDO::FETCH_ASSOC);
+        if (!$result) {
+            // Cant find Login
+            $pdo = null;
+            $stmt = null;           
+            header( "refresh:0; url=../logout.php" );
+            echo '<script> alert("You got recently deleted");</script>';
+            die("");
+        } 
+    } catch (PDOExecption $e) {
+        die("Failed : " . $e->getMessage()); 
+    }
+}
 ?>
 <!DOCTYPE html>
 <html>
