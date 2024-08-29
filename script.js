@@ -386,10 +386,10 @@ function pullRarity() {
   // Random number generator
   const randomNumber = Math.random() * 100;
   
-  const trashProbability = 60;
-  const rareProbability = 35;
-  const epicProbability = 4;
-  const LegendaryProbability = 1;
+  // const trashProbability = 60;
+  // const rareProbability = 35;
+  // const epicProbability = 4;
+  // const LegendaryProbability = 1;
   if (randomNumber < trashProbability){
     return items.filter(items => items.Rarity === "Trash");
   } else if (randomNumber <= (rareProbability + trashProbability)) {
@@ -411,7 +411,7 @@ function pullItem(){
     document.getElementById("result-text").innerHTML = '';
     document.getElementById('result-text').className = '';
   
-  const Rarity_array = pullRarity();
+  const Rarity_array = "ErikPerik";
   console.log(Rarity_array)
     // if (Rarity_array.length == 1) {
     //   var random_index = 0;
@@ -437,6 +437,9 @@ function pullItem(){
             console.log("Epic");
             source.setAttribute("src", "Medium/4star_animation.mp4");
           }  else if (Rarity_array[random_index].Rarity === "Legendary"){
+            console.log("Legedary");
+            source.setAttribute("src", "Medium/5star_animation.mp4");
+          } else if (Rarity_array[random_index].Rarity === "ErikPerik"){
             console.log("Legedary");
             source.setAttribute("src", "Medium/5star_animation.mp4");
           }
