@@ -3,7 +3,7 @@ session_start();
 
 if (isset($_SESSION["login"]) && $_SESSION["login"] == true){
     try {
-        require_once "dbh-inc.php"; 
+        require_once "php_requires/dbh-inc.php"; 
         $query = "SELECT id_user, DisplayName, username, pwd, clearance, auto_saving FROM user WHERE id_user = :id_user;";
         $stmt = $pdo -> prepare($query);
         $stmt -> bindParam(':id_user', $_SESSION['id']);        
