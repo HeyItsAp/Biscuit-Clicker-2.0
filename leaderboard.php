@@ -6,6 +6,8 @@
     <title>Leaderboard</title>
 </head>
 <body>
-    
+    <section>
+        <h1 class="fs-3"> Leaderboard</h1>
+    </section>
 </body>
 </html>
