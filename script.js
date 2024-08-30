@@ -386,11 +386,14 @@ function pullRarity() {
   // Random number generator
   const randomNumber = Math.random() * 100;
   
-  // const trashProbability = 60;
-  // const rareProbability = 35;
-  // const epicProbability = 4;
-  // const LegendaryProbability = 1;
-  if (randomNumber < trashProbability){
+  const trashProbability = 60;
+  const rareProbability = 35;
+  const epicProbability = 4;
+  const LegendaryProbability = 1;
+  const ErikPerik = 100;
+  if (randomNumber <= ErikPerik){
+    return items.filter(items => items.Rarity === "ErikPerik");
+  } else if (randomNumber < trashProbability){
     return items.filter(items => items.Rarity === "Trash");
   } else if (randomNumber <= (rareProbability + trashProbability)) {
     return items.filter(items => items.Rarity === "Rare");
@@ -398,8 +401,10 @@ function pullRarity() {
     return items.filter(items => items.Rarity === "Epic");
   } else if (randomNumber <= (rareProbability + epicProbability + trashProbability + LegendaryProbability)){
     return items.filter(items => items.Rarity === "Legendary");
-  }
+  } 
+  
 }
+
 function pullItem(){
   if (biscuitprestige >= Summonreq){
   biscuitprestige = biscuitprestige - Summonreq;
