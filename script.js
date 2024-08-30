@@ -416,7 +416,7 @@ function pullItem(){
     document.getElementById("result-text").innerHTML = '';
     document.getElementById('result-text').className = '';
   
-  const Rarity_array = "ErikPerik";
+  const Rarity_array = "pullRarity()";
   console.log(Rarity_array)
     // if (Rarity_array.length == 1) {
     //   var random_index = 0;
