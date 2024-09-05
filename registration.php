@@ -105,7 +105,7 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == true){
         </header>
         <section class="container-lg mt-2 p-3 rounded-3" style="background-color:#FFFFFF;">
             <form method="post" action="php_requires/res_h.php">
-                <h2>Bra å vise</h2>
+                <h2>Create your user</h2>
                 <div class="mb-3">
                     <label for="DisplayName" class="form-label"> Display name </label>
                     <input class="form-control" type="text" name="DisplayName" placeholder='BiscuitMaster123' required>
