@@ -72,7 +72,7 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == true){
         try {
             require_once "php_requires/dbh-inc.php"; 
             $query = "Select DisplayName, username, biscuit_count, prestige_count FROM user INNER JOIN biscuit_progress on user.
-            id_user = biscuit_progress.id_foregin_user;";
+            id_user = biscuit_progress.id_foregin_user ORDER BY biscuit_count DESC;";
             $stmt = $pdo -> prepare($query);
             $stmt -> execute();
             $users_data = $stmt ->fetchAll(PDO::FETCH_ASSOC);    
@@ -91,18 +91,17 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == true){
     ?>
     <section class="container-lg mt-5">
         <header class="my-4">
-            <h4 class="fs-3">Make Admin:</h4>
-            <p> Here you can delete users or make other users admin. Yes, unfortonoaly this is all you can do</p>
+            <h4 class="fs-3">Leaderboard</h4>
+            <p> Most biscuits </p>
         </header>
         <table class="table table-bordered">
             <thead>
                 <tr>
                     <?php
-                        if ($users){
+                        if ($users_data){
                             foreach ($users[0] as $key => $row){
                                 print '<th scope="col">' . $key . '</th>';
                             }
-                            print '<th scope="col"> Buttons </th>';
                         } else {
                             print '<h4 class="fs-3"> Ingen brukrere</h4>';
                         }
@@ -111,37 +110,18 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == true){
             </thead>
             <tbody>
                 <?php    
-                    if ($users){
-                        foreach ($users as $key => $row){
-                            $id_user = $row['id_user'];
+                    if ($users_data){
+                        foreach ($users_data as $key => $row){
                             $DisplayName = $row['DisplayName'];
                             $username = $row['username'];
-                            $pwd = $row['pwd'];
-                            $date = $row['date'];
-                            $clearance = $row['clearance'];
-                            $auto_saving = $row['auto_saving'];
-
+                            $biscuit_count = $row['biscuit_count'];
+                            $prestige_count = $row['prestige_count'];
                         ?>
                             <tr>
-                                <form method="post" action="php_requires/adminMethod_h.php">
-                                <th scope="row"><?php echo $id_user ?></th>
                                 <th scope="row"><?php echo $DisplayName ?></th>
                                 <th scope="row"><?php echo $username ?></th>
-                                <th scope="row">***</th>
-                                <th scope="row"><?php echo $date ?></th>
-                                <td>
-                                    <select name="new_clearance" class="form-select">
-                                        <option value="0" class="text-primary" <?php echo $clearance == "0" ? "selected" : "" ?>> Normal Clicker </option>
-                                        <option value="1" class="text-success" <?php echo $clearance == "1" ? "selected" : "" ?>> Admin Clicker </option>
-                                    </select>
-                                </td>
-                                <th scope="row"><?php echo $auto_saving == "0" ? "Off" : "On" ?></th>
-                                <td>
-                                    <?php print '<input type="hidden" name="id_user" value="'. $id_user. '">'; ?>
-                                    <button type="submit" name="delete_bruker" class="btn btn-danger mx-1"> Delete </button>
-                                    <button type="submit" name="oppdater_clearance" class="btn btn-success mx-1"> Update clearance </button>
-                                </td>
-                                </form>
+                                <th scope="row"><?php echo $biscuit_count ?></th>
+                                <th scope="row"><?php echo $prestige_count ?></th>
                             </tr>
                         <?php
                         }
