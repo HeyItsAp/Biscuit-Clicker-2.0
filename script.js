@@ -3,8 +3,10 @@
     // Universal
 
         //
+// Get page name
 var pathtopage = window.location.pathname
 var page = pathtopage.split("/").pop();
+// Debugging
 console.log("Script connected");
 console.log("Site: " + page)
 
@@ -52,7 +54,7 @@ function incrementcount(event) {
     // console.log("Parent size:", clicker_biscuit.offsetWidth, clicker_biscuit.offsetHeight);
     // console.log("Child size:", number.offsetWidth, number.offsetHeight);
 
-  // Animation / movement
+  // Animation / movement for disappearing +1
 
     let speed_modifier = 1;    // More is faster, less is slower
 
@@ -74,9 +76,8 @@ function incrementcount(event) {
 
   clicker_biscuit.appendChild(number);
 }
-
-
     if (page == "index.php" || page == "") {
+      // Start the auto biscuit mining
       setInterval(() => {
         for (let element of Upgrades){
           biscuitCount += Math.round((element.value*element.antal) * 100) / 100
@@ -91,7 +92,8 @@ function incrementcount(event) {
         biscuitCountElement.innerHTML = biscuitCount;
       }
     }
-function UpdateBiscuitAuto(){
+
+function UpdateBiscuitAuto(){ // Update the element reperesnting auto.
   let biscuitautoElement = document.getElementById("biscuit-auto-h2");
   biscuitautoElement.innerHTML = "Biscuits per second: <span id='biscuit-auto'>0</span>";
   biscuitauto = 0;
@@ -101,8 +103,10 @@ function UpdateBiscuitAuto(){
   }
   document.getElementById("biscuit-auto").innerHTML = biscuitauto;
 }
+
+// Biscuit Prestige
 let calc_biscuitprestige = 0;
-function UpdatePrestige(){
+function UpdatePrestige(){ 
   calc_biscuitprestige = Math.round((biscuitCount/prestige_req) * 100) / 100;
   if (calc_biscuitprestige >= 1 && !showprestigeoption.called) {
     showprestigeoption();
@@ -178,7 +182,7 @@ var Upgrades = []; // Data inserted via ajax/php
 var orignalupgrade = []; // Data inserted via ajax/php + if logged in
 
 
-function RefreshUpgradesElem(){
+function RefreshUpgradesElem(){ // Deletes
   let upgradeparent = document.getElementById("The-upgrades-menu");
   let upgradeelements = upgradeparent.querySelectorAll("div");
   console.log("Refreshing Upgrades");
@@ -197,7 +201,7 @@ if (page == "index.php" || page == ""){
 
 }
 
-function CreateUpgrade(element) {
+function CreateUpgrade(element) { // Creates one unit of upgrade
   let Upgrade_div = document.createElement("div")
     Upgrade_div.setAttribute("id", "Upgrade-" + element.navn)
     Upgrade_div.setAttribute("class", "list-group-item p-3 my-1 d-flex flex-row justify-content-between w-100 btn border-0 hover")
@@ -287,7 +291,7 @@ function CreateUpgrade(element) {
 // Items Data  
 var items = [] // Data is gotten through ajax
 if (page == "items.php") {
-  function CreateItem(element) {
+  function CreateItem(element) { // Creates one unit of item element
     let Item_div= document.createElement("div")
     Item_div.setAttribute("id", "Item-" + element.navn)
     Item_div.setAttribute("class", "col-12 col-lg-4 col-xl-3")
@@ -339,7 +343,7 @@ if (page == "items.php") {
       //    </div>
       // </div>
     }
-    function CreateItems(items_array) {
+    function CreateItems(items_array) { // Loops, checks for obtained and creates items from list
       let you_have_an_item = false;
       for (let element of items_array) {
           if (element.Obtained == true || element.Obtained == "true") {
@@ -363,7 +367,7 @@ if (page == "items.php") {
     }  
  
 }
-function Updateincrementvalue(){
+function Updateincrementvalue(){ // 
   for (let element of items) {
     if (element.Obtained == true || element.Obtained == "true"){
       incrementvalue += element.increment_increase
@@ -381,7 +385,7 @@ function Updateincrementvalue(){
 let Summonreq = 10;
 
 // Bascailly the pulling mecanhic
-function pullRarity() {
+function pullRarity() { // "pulls" a Rarity and returns an filtered array that contains the approitiarte items
 
   // Random number generator
   const randomNumber = Math.random() * 100;
@@ -390,6 +394,7 @@ function pullRarity() {
   const rareProbability = 35;
   const epicProbability = 4;
   const LegendaryProbability = 1;
+  
   const ErikPerik = 100;
   if (randomNumber <= ErikPerik){
     return items.filter(items => items.Rarity === "ErikPerik");
@@ -402,7 +407,7 @@ function pullRarity() {
   } else if (randomNumber <= (rareProbability + epicProbability + trashProbability + LegendaryProbability)){
     return items.filter(items => items.Rarity === "Legendary");
   } 
-  
+ 
 }
 
 function pullItem(){
