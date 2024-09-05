@@ -104,7 +104,10 @@ function UpdateBiscuitAuto(){ // Update the element reperesnting auto.
   document.getElementById("biscuit-auto").innerHTML = biscuitauto;
 }
 
-// Biscuit Prestige
+
+//
+    // Biscuit Prestige
+        //
 let calc_biscuitprestige = 0;
 function UpdatePrestige(){ 
   calc_biscuitprestige = Math.round((biscuitCount/prestige_req) * 100) / 100;
@@ -396,6 +399,7 @@ function pullRarity() { // "pulls" a Rarity and returns an filtered array that c
   const LegendaryProbability = 1;
   
   const ErikPerik = 100;
+  
   if (randomNumber <= ErikPerik){
     return items.filter(items => items.Rarity === "ErikPerik");
   } else if (randomNumber < trashProbability){
@@ -407,7 +411,7 @@ function pullRarity() { // "pulls" a Rarity and returns an filtered array that c
   } else if (randomNumber <= (rareProbability + epicProbability + trashProbability + LegendaryProbability)){
     return items.filter(items => items.Rarity === "Legendary");
   } 
- 
+
 }
 
 function pullItem(){

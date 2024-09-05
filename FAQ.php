@@ -43,6 +43,7 @@
     <section class="container-lg mt-5">
         <div class="row gap-5 d-flex justify-content-center">
 
+            <!-- One set of questions -->
             <article class="col-12 col-lg-10 my-1">
                 <div class="text-start">
                     <h2 class="fs-1">Biscuit Gameplay </h4>
@@ -87,6 +88,8 @@
                     </div>
                 </div>
             </article>
+
+            <!-- One set of questions -->
             <article class="col-12 col-lg-10 my-1">
                 <div class="text-start">
                     <h2 class="fs-1"> Account manangement </h4>
@@ -131,10 +134,13 @@
                     </div>
                     </div>
             </article>
+            <!-- Set -->
             <article class="my-1 col-12 col-lg-10">
                 <h4 class="fs-1"> How to navigate video </h4>
                 <video src="Dokumenter/Navigation.mp4" controls class="w-100">Unable to find video</video>
             </article>
+
+            <!-- Set -->
             <footer class="mb-5 col-12 col-lg-10">
                 <h4 class="fs-3">Advanced guides</h4>
                 <p> These guide into more detail on how to play and opearate the game: </p>

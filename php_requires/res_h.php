@@ -29,7 +29,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     try {
         require_once "dbh-inc.php"; 
-
         // For duplicate
             try {
                 $query = "SELECT * FROM user WHERE DisplayName = :DisplayName OR username = :username";
